@@ -4,35 +4,30 @@ import { useGSAP } from '@gsap/react';
 import React, { useRef } from 'react';
 
 const AboutText = () => {
+
   const textRef = useRef(null);
   const headerRef = useRef(null);
 
+  const containerRef = useRef(null);
+
   useGSAP(()=>{
-    const tl = gsap.timeline();
-
-    tl.from(headerRef.current, {
-      y: 20,
-      duration: 0.3,
+    gsap.from(".gsap-texts", {
+      yPercent: 50,
       opacity: 0,
-      ease: "power2.out"
-    });
-
-    tl.from(textRef.current, {
-      y: 20,
       duration: 0.5,
-      opacity: 0,
-      ease: "power2.out"
-    });
+      stagger: 0.1,
+      ease: "back.out(2)"
+    })
     
-  })
+  }, { dependencies: [], scope: containerRef })
 
   return (
-    <div className="mb-[5%] w-full h-full flex justify-center items-center">
-      <div className="w-[85%] h-auto bg-white border-[0.3em] border-[#121212] p-[5%]">
+    <div ref={containerRef} className="text-[4vw] mb-[5%] w-full h-full flex justify-center items-center">
+      <div className="w-[85%] h-auto bg-white border-[0.3em]  border-[#121212] p-[5%] shadow-[0.6em_0.6em_0_0_#121212]">
 
-        <h2 ref={headerRef} className="uppercase font-extrabold text-[5vw]">Who is <br/> sadat?</h2>
+        <h2 className="gsap-texts uppercase font-extrabold text-[4vw]">Who is <br/> sadat?</h2>
 
-        <p ref={textRef} className="leading-6 text-[#121212]">loremjs akw aj wja sjw sja sjs js wjw <span className="bg-[#FFFFDB] font-semibold">Web Developer</span> sja jww js aja aja aja jacdkdw vaia doq sis qka dis. fiewb sidvwi cdisk <span className="bg-[#FFFFDB] font-semibold">Portfolio</span> skw jovsuss si ahssvska</p>
+        <p className="gsap-texts text-[#121212] text-[2.5vw]">loremjs akw aj wja sjw sja sjs js wjw <span className="bg-[#FFFFDB] font-semibold">Web Developer</span> sja jww js aja aja aja jacdkdw vaia doq sis qka dis. fiewb sidvwi cdisk <span className="bg-[#FFFFDB] font-semibold">Portfolio</span> skw jovsuss si ahssvska</p>
       </div>
     </div>
   )

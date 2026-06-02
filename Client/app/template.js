@@ -1,22 +1,24 @@
-'use client'
-import { useGSAP } from "@gsap/react"
-import gsap from "gsap"
-import { useRef } from "react"
+'use client';
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useRef } from "react";
 
 export default function Template({ children }) {
-  const container = useRef(null)
+  const container = useRef(null);
 
   useGSAP(() => {
-    gsap.from(container.current, {
-      y: 20,
-      opacity: 0,
+    const tl = gsap.timeline();
+
+    tl.from(container.current, {
+      height: "0%",
       duration: 0.5,
-      ease: "power2.out",
+      ease: "power2.out"
     })
-  }, { scope: container })
+
+  }, []);
 
   return (
-    <div ref={container} className="min-h-screen">
+    <div ref={container} className=" w-full h-full">
       {children}
     </div>
   )

@@ -6,37 +6,34 @@ import React, { useRef } from 'react'
 
 const AboutCard = () => {
   const cardRef = useRef(null);
-  const cardRef2 = useRef(null);
 
   useGSAP(()=>{
-    gsap.from(cardRef.current, {
-      y: 20,
-      duration: 0.3,
+    gsap.from(".gasp-cards", {
+      yPercent: 20,
+      duration: 0.5,
       delay: 0.8,
       opacity: 0,
-      ease: "power2.out"
+      stagger: 0.12,
+      ease: "back.out(2)"
     });
-
-    gsap.from(cardRef2.current, {
-      y: 20,
-      duration: 0.3,
-      delay: 1.1,
-      opacity: 0,
-      ease: "power2.out"
-    })
-  })
+  }, {scope: cardRef, dependencies: []});
 
   return (
-    <div className="mx-[7.5%] w-[85%] h-auto flex flex-col">
+    <div ref={cardRef} className="text-[4vw] mx-[7.5%] w-[85%] h-auto flex flex-col justify-between items-center">
 
-      <div ref={cardRef} className="mb-[5%] px-[5%] py-[2%] bg-[#fff] border-solid border-[#121212] border-[0.3em] flex flex-col gap-[2%]">
-        <span className="text-[#121212] uppercase font-semibold">Location</span> 
-        <span>Rajsahi, Joypurhat</span>
+      <div className="gasp-cards w-full p-[3%] bg-[#fff] border-[#121212] border-[0.2em] flex flex-col shadow-[0.4em_0.4em_0_0_#121212]">
+        <span className="text-[#121212] uppercase font-bold text-[3vw]">Location</span> 
+        <span className="text-[2.5vw] text-[#121212]">Rajsahi, Joypurhat</span>
       </div>
 
-      <div ref={cardRef2} className="px-[5%] py-[2%] bg-[#fff] border-solid border-[#121212] border-[0.3em] flex flex-col gap-[2%]">
-        <span className="text-[#121212] uppercase font-semibold">Hobby</span>
-        <span>Programming</span>
+      <div className="gasp-cards w-full p-[3%] bg-[#fff] border-[#121212] border-[0.2em] flex flex-col shadow-[0.4em_0.4em_0_0_#121212]">
+        <span className="text-[#121212] text-[3vw] uppercase font-bold">Hobby</span>
+        <span className="text-[#121212] text-[2.5vw]">Programming</span>
+      </div>
+
+      <div className="gasp-cards w-full p-[3%] bg-[#fff] border-[#121212] border-[0.2em] flex flex-col shadow-[0.4em_0.4em_0_0_#121212]">
+        <span className="text-[3vw] text-[#121212] uppercase font-bold">Working at</span>
+        <span className="text-[2.5vw] text-[#121212]">Student</span>
       </div>
 
     </div>

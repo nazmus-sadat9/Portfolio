@@ -105,7 +105,7 @@ const ContactForm = () => {
       duration: 0.5,
       stagger: 0.1,
       opacity: 0,
-      ease: 'sine.out'
+      ease: 'back.out(2)'
     });
 
     tl.from(".anime2", {
@@ -113,24 +113,24 @@ const ContactForm = () => {
       duration: 0.3,
       stagger: 0.1,
       opacity: 0,
-      ease: 'sine.out'
+      ease: 'back.out(2)'
     });
 
     tl.from(".animeBtn", {
       y: 20,
       opacity: 1,
       duration: 0.3,
-      ease: 'sine.out'
+      ease: 'back.out(2)'
     });
 
-  }, { scope: container });
+  }, { scope: container, dependencies: [] });
 
   return (
     <div ref={container} className="w-[75%] h-auto bg-[#121212] grid sm:grid-cols-1 md:grid-cols-2 border-[#121212] border-[0.3em] shadow-[0.8em_0.8em_0_0_#121212] text-[4vw]">
       <div className="w-full h-auto bg-[#fff] p-[10%]">
         <h2 className="anime1 text-[#121212] font-extrabold uppercase text-[6.5vw]">Let's <br/>talk</h2>
         <p className="anime1 text-[#555] text-[2vw] mb-[5%]">You can share your openion about this website.</p>
-        <div className="anime1 text-[2.5vw] flex gap-[5%]">
+        <div className="anime1 text-[2vw] flex gap-[5%]">
           <i className="">Github</i>
           <i className="">Facebook</i>
           <i className="">Instagram</i>

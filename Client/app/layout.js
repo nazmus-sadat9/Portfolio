@@ -1,15 +1,11 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import NextTopLoader from 'nextjs-toploader';
 import Navbar from './Components/Navbar.jsx';
+import Footer from "./Components/Footer.jsx";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
@@ -22,15 +18,17 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
 
-        <NextTopLoader color="#000000" height={5} speed={100} showSpinner={false} shadow={false}/>
+        <NextTopLoader className="next-loader" color="#000000" speed={100} showSpinner={false} shadow={false}/>
 
         <Navbar />
 
         {children}
+
+        <Footer />
       </body>
     </html>
   );

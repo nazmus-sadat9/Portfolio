@@ -1,6 +1,74 @@
 @import "tailwindcss";
 
-#errorStatus{
-  -webkit-text-stroke: 2.5px black;
+body {
+  font-family: var(--font-space-grotesk), sans-serif;
 }
 
+#errorStatus{
+  -webkit-text-stroke: 2.5px #121212;
+  text-stroke: 2.5px #121212;
+}
+
+/* Navbar style */
+
+
+/* Skill cards */
+.gridBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-color: #ffffff;
+  color: #121212;
+  transition: 0.3s linear;
+  border: 0.4em solid #121212;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 0.8em 0.8em 0 #121212;
+}
+
+.gridBox:hover:nth-child(1){
+  background-color: #ffd558;
+}
+
+.gridBox:hover:nth-child(2){
+  background-color: #58ff87;
+}
+
+.gridBox:hover:nth-child(3){
+  background-color: #61DBFB;
+}
+
+.gridBox:hover:nth-child(4){
+  background-color: #E3E3E3;
+}
+
+.gridBox:hover:nth-child(5){
+  background-color: #479EE8;
+}
+
+.gridBox:hover:nth-child(6){
+  background-color: #3776ab;
+  color: #ffffff;
+}
+
+.gridBox:hover:nth-child(7){
+  background-color: #7ACE02;
+}
+
+.gridBox:hover:nth-child(8){
+  background-color: #1C1C1C;
+  color: #ffffff;
+}
+
+.gridBox:hover:nth-child(9){
+  background-color: #3178C6;
+  color: #ffffff;
+}
+
+.gridBox:hover:nth-child(10){
+  background-color: #121212;
+  color: #ffffff;
+}

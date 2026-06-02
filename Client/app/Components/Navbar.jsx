@@ -3,18 +3,37 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import React, { useRef } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
 
-  const navbarRef = useRef(null)
+  const navbarRef = useRef(null);
+  const pathname = usePathname();
+
+
+  useGSAP(()=>{
+    gsap.fromTo(".navbar-links", {
+      yPercent: 90,
+      opacity: 0,
+    }, {
+      yPercent: 0,
+      opacity: 1,
+      duration: 0.5,
+      stagger: 0.15,
+      ease: "back.out(2)"
+    })
+  }, { scope: navbarRef, dependencies: [pathname] });
+
   return (
-    <div className="z-50 w-screen h-[10vh] text-[#121212] flex justify-around items-center fixed left-0 top-0 backdrop-blur-md">
-      <div className="py-[1%] px-[3%] font-bold border-[#121212] border-[0.1em] bg-[#fff] shadow-[0.4em_0.4em_0_0_#121212] cursor-pointer text-[#121212]">SADAT</div>
-      <div className="w-1/2 h-full flex justify-evenly items-center">
-        <Link href='/'>Home</Link>
-        <Link href='/About'>About</Link>
-        <Link href='/Projects'>Projects</Link>
-        <Link href='/Contact'>Contact</Link>
+    <div className="w-screen h-auto flex justify-center items-center z-[500] text-[4vw] fixed left-0 top-[2%]">
+      <div className="px-[3%] h-auto max-w-2xl w-[80%] md:w-[100%] bg-[#ffffff] border-[#121212] border-[0.1em] rounded-[0.5em] shadow-[0.4em_0.4em_0_0_#121212] flex items-center justify-between">
+        <h1 className="uppercase text-[#121212] font-black text-[6vw]">sadat</h1>
+        <div ref={navbarRef} className="text-[2.5vw] w-full h-full flex justify-evenly items-center">
+          <Link className="navbar-links" href='/'>Home</Link>
+          <Link className="navbar-links" href='/About'>About</Link>
+          <Link className="navbar-links" href='/Projects'>Projects</Link>
+          <Link className="navbar-links" href='/Contact'>Contact</Link>
+        </div>
       </div>
     </div>
   )
