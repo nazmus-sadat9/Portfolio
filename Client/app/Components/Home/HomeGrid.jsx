@@ -30,17 +30,17 @@ const HomeGrid = () => {
     });
 
     boxTl.from(box3Ref.current, {
-      scale: 0.4,
+      yPercent: 40,
       opacity: 0,
       duration: 0.8,
-      rotate: 270,
       ease: "back.out(2)"
     });
 
-    });
+  });
 
-    return (
-      <div className="w-full h-auto grid md:grid-cols-3 gap-[10%] z-10">
+  return (
+    <div className="w-full h-auto">
+      <div className="w-full h-auto grid md:grid-cols-3 gap-[10%] z-10 p-[10%]">
         <div ref={box1Ref} className="col-span-3 text-[4vw] p-[10%] bg-[#ffffff] border-[0.2em] border-[#121212] shadow-[0.4em_0.4em_0_0_#121212] w-full flex flex-col justify-center">
           <h2 className="mb-[2%] uppercase font-black text-[6vw] text-[#121212]">sadat //</h2>
           <p className="font-semibold text-[3vw] text-[#121212]">MERN Stack web developer & low level developer.</p>
@@ -56,6 +56,8 @@ const HomeGrid = () => {
         </div>
       </div>
 
+      <p className="text-[#121212]">v0.7.10</p>
+    </div>
     );
 };
 

@@ -133,9 +133,9 @@ const ContactForm = () => {
         <h2 className="anime1 text-[#121212] font-extrabold uppercase text-[6.5vw]">Let's <br/>talk</h2>
         <p className="anime1 text-[#555] text-[2vw] mb-[5%]">You can share your openion about this website.</p>
         <div className="anime1 text-[2vw] flex gap-[5%]">
-          <i className="">Github</i>
-          <i className="">Facebook</i>
-          <i className="">Instagram</i>
+          <a href="https://github.com/nazmus-sadat9" target="_blank" rel="noopener noreferrer" className="text-[#121212] no-underline">Github</a>
+          <a href="https://www.facebook.com/share/1JcHannGA4/" target="_blank" rel="noopener noreferrer" className="text-[#121212] no-underline">Facebook</a>
+          <a href="https://www.instagram.com/lord.sadat?igsh=MTBnaW50bjRiaWl6dQ==" target="_blank" rel="noopener noreferrer" className="text-[#121212] no-underline">Instagram</a>
         </div>
       </div>
 

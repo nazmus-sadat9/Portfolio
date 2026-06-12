@@ -17,7 +17,7 @@ export default function Page(){
       y: -30,
       repeat: -1,
       yoyo: true,
-      ease: "sine.inOut"
+      ease: "back.out(1.8)"
     });
 
     gsap.from(box.current, {
@@ -31,10 +31,10 @@ export default function Page(){
 
   return(
     <div className="text-[4vw] bg-[#ffffdb] w-screen h-screen flex flex-col justify-center items-center">
-      <h2 id="errorStatus" ref={status} className="font-black text-[25vw] text-[#fff] tracking-[3vw] select-none drop-shadow-[0.1em_0.1em_0_#121212]">404</h2>
+      <h2 id="errorStatus" ref={status} className="font-black text-[25vw] text-[#fff] tracking-[3vw] select-none drop-shadow-[0.2em_0.2em_0_#121212]">404</h2>
 
       <div ref={box} className="flex flex-col justify-around items-center w-[60%] h-[23%] bg-[#fff] border-[#121212] border-[0.3em] shadow-[0.6em_0.6em_0_0_#121212] px-[5%] py-[4%]">
-        <h2 className="font-bold text-[6vw] text-[#121212]">Page not found!</h2>
+        <h2 className="uppercase font-bold text-[6vw] text-[#121212]">We are lost</h2>
         <Link className="text-center text-[4vw] px-[5%] py-[2%] border-[#121212] border-[0.1em] text-[#121212] font-semibold transition-all duration-300 shadow-[0.4em_0.4em_0_0_#121212] hover:shadow-[0em_0em_0_0_#121212] hover:translate-x-[10px] hover:translate-y-[10px] hover:text-red-800" href='/'>Go Back</Link>
       </div>
     </div>
