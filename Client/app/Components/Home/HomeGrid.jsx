@@ -16,7 +16,7 @@ const HomeGrid = () => {
     const boxTl = gsap.timeline();
 
     boxTl.from(box1Ref.current, {
-      xPercent: 50,
+      xPercent: 25,
       opacity: 0,
       duration: 0.8,
       ease: "back.out(2)"
