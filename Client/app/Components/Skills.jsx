@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useRef } from "react";
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -37,7 +37,7 @@ const Skills = () => {
       <div className="gridBox">Typescript</div>
       <div className="gridBox">Socket.io</div>
     </div>
-  )
+  );
 }
 
-export default Skills
+export default Skills;

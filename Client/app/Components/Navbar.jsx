@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import React, { useRef } from 'react';
@@ -36,7 +36,7 @@ const Navbar = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

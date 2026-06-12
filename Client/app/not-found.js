@@ -1,9 +1,9 @@
-'use client'
-import { notFound } from 'next/navigation'
-import gsap from 'gsap'
-import Link from 'next/link'
-import { useGSAP } from '@gsap/react'
-import React, { useRef } from 'react'
+'use client';
+import { notFound } from 'next/navigation';
+import gsap from 'gsap';
+import Link from 'next/link';
+import { useGSAP } from '@gsap/react';
+import React, { useRef } from 'react';
 
 
 export default function Page(){
@@ -24,10 +24,10 @@ export default function Page(){
       y: 30,
       duration: 1,
       opacity: 0,
-      ease: "back.out(1.6)"
+      ease: "back.out(2)"
     });
 
-  }, []) 
+  }, []); 
 
   return(
     <div className="text-[4vw] bg-[#ffffdb] w-screen h-screen flex flex-col justify-center items-center">
@@ -38,5 +38,5 @@ export default function Page(){
         <Link className="text-center text-[4vw] px-[5%] py-[2%] border-[#121212] border-[0.1em] text-[#121212] font-semibold transition-all duration-300 shadow-[0.4em_0.4em_0_0_#121212] hover:shadow-[0em_0em_0_0_#121212] hover:translate-x-[10px] hover:translate-y-[10px] hover:text-red-800" href='/'>Go Back</Link>
       </div>
     </div>
-  )
+  );
 }

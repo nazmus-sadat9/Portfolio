@@ -10,7 +10,7 @@ const ContactForm = () => {
   const [nameAlert, setNameAlert] = useState('');
   const [msgAlert, setMsgAlert] = useState('');
 
-  // user data collect
+  // user data collection 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [msg, setMsg] = useState('');
@@ -88,7 +88,7 @@ const ContactForm = () => {
         } 
 
         else {
-          alert('something wrong!')
+          alert('something went to wrong!');
         }
 
       } catch (err) {
@@ -99,6 +99,7 @@ const ContactForm = () => {
 
   // animations
   useGSAP(()=>{
+
     const tl = gsap.timeline();
     tl.from(".anime1", {
       y: 40,
@@ -126,6 +127,7 @@ const ContactForm = () => {
   }, { scope: container, dependencies: [] });
 
   return (
+
     <div ref={container} className="w-[75%] h-auto bg-[#121212] grid sm:grid-cols-1 md:grid-cols-2 border-[#121212] border-[0.3em] shadow-[0.8em_0.8em_0_0_#121212] text-[4vw]">
       <div className="w-full h-auto bg-[#fff] p-[10%]">
         <h2 className="anime1 text-[#121212] font-extrabold uppercase text-[6.5vw]">Let's <br/>talk</h2>
@@ -144,7 +146,7 @@ const ContactForm = () => {
         <button className="opacity-0 animeBtn text-[#121212] p-[3%] hover:bg-[#121212] hover:text-[#ffffdb] transition-all duration-300 uppercase bg-[#ffffdb] font-bold" type="submit">Send</button>
       </form>
     </div>
-  )
+  );
 }
 
-export default ContactForm
+export default ContactForm;

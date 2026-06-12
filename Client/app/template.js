@@ -19,6 +19,7 @@ export default function Template({ children }) {
 
   return (
     <div ref={container} className=" w-full h-full">
+      
       {children}
     </div>
   )

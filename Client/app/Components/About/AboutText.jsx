@@ -19,7 +19,7 @@ const AboutText = () => {
       ease: "back.out(2)"
     })
     
-  }, { dependencies: [], scope: containerRef })
+  }, { dependencies: [], scope: containerRef });
 
   return (
     <div ref={containerRef} className="text-[4vw] mb-[5%] w-full h-full flex justify-center items-center">
@@ -30,7 +30,7 @@ const AboutText = () => {
         <p className="gsap-texts text-[#121212] text-[2.5vw]">loremjs akw aj wja sjw sja sjs js wjw <span className="bg-[#FFFFDB] font-semibold">Web Developer</span> sja jww js aja aja aja jacdkdw vaia doq sis qka dis. fiewb sidvwi cdisk <span className="bg-[#FFFFDB] font-semibold">Portfolio</span> skw jovsuss si ahssvska</p>
       </div>
     </div>
-  )
+  );
 }
 
-export default AboutText
+export default AboutText;
