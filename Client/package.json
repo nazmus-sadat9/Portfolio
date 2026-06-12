@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "0.7.10",
+  "version": "0.7.11",
   "homepage": "https://nazmus-sadat9.github.io/Portfolio",
   "scripts": {
     "dev": "next dev",

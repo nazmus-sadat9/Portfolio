@@ -4,13 +4,40 @@ body {
   font-family: var(--font-space-grotesk), sans-serif;
 }
 
+
+/* not-found */
 #errorStatus{
   -webkit-text-stroke: 2.5px #121212;
   text-stroke: 2.5px #121212;
 }
 
 /* Navbar style */
+.navbar-links{
+  position: relative;
+  color: #555;
+  transition: all 0.25 ease-out;
 
+  &::after{
+    content: "";
+    position: absulute;
+    left: 0;
+    bottom: -2%;
+    height: 5%;
+    width: 100%;
+    transform-origin: bottom center;
+    transform: scaleX(0);
+    background-color: #121212;
+    transition: transform 0.25s ease-out;
+  }
+
+  &:hover{
+    color: #121212;
+  }
+}
+
+.navbar-links:hover::after{
+  transition: scaleX(1);
+}
 
 /* Skill cards */
 .gridBox{

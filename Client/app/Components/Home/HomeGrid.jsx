@@ -43,7 +43,7 @@ const HomeGrid = () => {
       <div className="w-full h-auto grid md:grid-cols-3 gap-[10%] z-10 p-[10%]">
         <div ref={box1Ref} className="col-span-3 text-[4vw] p-[10%] bg-[#ffffff] border-[0.2em] border-[#121212] shadow-[0.4em_0.4em_0_0_#121212] w-full flex flex-col justify-center">
           <h2 className="mb-[2%] uppercase font-black text-[6vw] text-[#121212]">sadat //</h2>
-          <p className="font-semibold text-[3vw] text-[#121212]">MERN Stack web developer & low level developer.</p>
+          <p className="font-semibold text-[3vw] text-[#121212]">I am a web developer.</p>
         </div>
                 
         <div ref={box2Ref} className="uppercase py-[5%] text-[4vw] md:col-span-2 w-full shadow-[0.4em_0.4em_0_0_#121212] bg-[#121212] text-[#ffffff] flex flex-col justify-center items-center">
@@ -56,7 +56,7 @@ const HomeGrid = () => {
         </div>
       </div>
 
-      <p className="text-[#121212]">v0.7.10</p>
+      <p className="text-[#121212] ml-[5%]">v0.7.11</p>
     </div>
     );
 };
