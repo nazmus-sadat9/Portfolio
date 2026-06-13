@@ -1,7 +1,7 @@
 import { Space_Grotesk } from "next/font/google";
 import NextTopLoader from 'nextjs-toploader';
-import Navbar from './Components/Navbar.jsx';
-import Footer from "./Components/Footer.jsx";
+import Navbar from './Components/Navbar';
+import Footer from "./Components/Footer"
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({

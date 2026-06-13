@@ -27,7 +27,7 @@ export default function Page(){
       <h2 id="errorStatus" ref={status} className="font-black text-[25vw] text-[#fff] tracking-[3vw] select-none drop-shadow-[0.07em_0.07em_0_#121212]">404</h2>
       
         <h2 className="font-bold text-[6vw] text-[#121212]">We are lost</h2>
-        <Link className="text-center text-[4vw] px-[5%] py-[2%] border-[#121212] border-[0.1em] text-[#121212] font-semibold transition-all duration-300 shadow-[0.4em_0.4em_0_0_#121212] hover:shadow-[0em_0em_0_0_#121212] hover:translate-x-[10px] hover:translate-y-[10px] hover:text-red-800" href='/'>Go Back</Link>
+        <Link className="text-center text-[4vw] px-[5%] py-[2%] border-[#121212] border-[0.1em] text-[#121212] font-semibold transition-all duration-300 shadow-[0.4em_0.4em_0_0_#121212] hover:shadow-[0em_0em_0_0_#121212] bg-[#121212] text-[#fff]" href='/'>Go Back</Link>
     </div>
   );
 }

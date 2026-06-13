@@ -18,8 +18,8 @@ const Navbar = () => {
     }, {
       yPercent: 0,
       opacity: 1,
-      duration: 0.5,
-      stagger: 0.15,
+      duration: 0.3,
+      stagger: 0.12,
       ease: "back.out(2)"
     })
   }, { scope: navbarRef, dependencies: [pathname] });
