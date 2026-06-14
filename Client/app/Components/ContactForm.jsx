@@ -128,18 +128,18 @@ const ContactForm = () => {
 
   return (
 
-    <div ref={container} className="w-[75%] h-auto bg-[#121212] grid sm:grid-cols-1 md:grid-cols-2 border-[#121212] border-[0.3em] shadow-[0.8em_0.8em_0_0_#121212] text-[4vw]">
+    <div ref={container} className="w-[75%] md:w-[65%] h-auto bg-[#121212] grid sm:grid-cols-1 md:grid-cols-2 border-[#121212] border-[0.3em] shadow-[0.8em_0.8em_0_0_#121212] text-[4vw] md:text-[2rem]">
       <div className="w-full h-auto bg-[#fff] p-[10%]">
-        <h2 className="anime1 text-[#121212] font-extrabold uppercase text-[6.5vw]">Let's <br/>talk</h2>
-        <p className="anime1 text-[#555] text-[2vw] mb-[5%]">You can share your openion about this website.</p>
+        <h2 className="anime1 text-[#121212] font-extrabold uppercase text-[6.5vw] md:text-[3rem]">Let's <br/>talk</h2>
+        <p className="anime1 text-[#555] text-[2vw] md:text-[1.2rem] mb-[5%]">You can share your openion about this website.</p>
         <div className="anime1 text-[2vw] flex gap-[5%]">
-          <a href="https://github.com/nazmus-sadat9" target="_blank" rel="noopener noreferrer" className="text-[#121212] no-underline">Github</a>
-          <a href="https://www.facebook.com/share/1JcHannGA4/" target="_blank" rel="noopener noreferrer" className="text-[#121212] no-underline">Facebook</a>
-          <a href="https://www.instagram.com/lord.sadat?igsh=MTBnaW50bjRiaWl6dQ==" target="_blank" rel="noopener noreferrer" className="text-[#121212] no-underline">Instagram</a>
+          <a href="https://github.com/nazmus-sadat9" target="_blank" rel="noopener noreferrer" className="text-[#121212] no-underline font-semibold md:text-[1rem]">Github</a>
+          <a href="https://www.facebook.com/share/1JcHannGA4/" target="_blank" rel="noopener noreferrer" className="text-[#121212] no-underline font-semibold md:text-[1rem]">Facebook</a>
+          <a href="https://www.instagram.com/lord.sadat?igsh=MTBnaW50bjRiaWl6dQ==" target="_blank" rel="noopener noreferrer" className="text-[#121212] no-underline font-semibold md:text-[1rem]">Instagram</a>
         </div>
       </div>
 
-      <form onSubmit={submition} className="anime2 w-full h-auto flex flex-col gap-5 py-[10%] px-[8%] text-[2vw]"> 
+      <form onSubmit={submition} className="anime2 w-full h-auto flex flex-col gap-5 py-[10%] px-[8%] text-[2vw] md:text-[0.8rem]"> 
         <input onChange={nameValidation} value={name} className="anime2 text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" type="text" placeholder="NAME" />
         <input onChange={emailValidation} value={email} className="anime2 text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" type="email" placeholder="EMAIL" />
         <textarea onChange={messageValidation} value={msg} className="anime2 text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" rows="4" type="text" placeholder="MESSAGE"></textarea>

@@ -4,6 +4,99 @@ body {
   font-family: var(--font-space-grotesk), sans-serif;
 }
 
+/* loading part */
+
+#mainLoadingBox{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: #ffffdb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: 0 auto;
+    width: 30%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 0.1em solid #121212;
+    transform: translate(-50%, -50%);
+  }
+
+  &::before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 25%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 0.1em dotted #121212;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    background-color: transparent; 
+    transform: translate(-50%, -50%);
+    animation: loadRotate3 4s ease-in-out infinite;
+  }
+}
+
+#loader-one{
+  width: 20%;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 0.1em solid var(--primary);
+  border-left-color: transparent;
+  border-right-color: transparent;
+  animation: loadRotate 3s linear infinite;
+}
+
+#loader-two{
+  width: 70%;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 0.1em solid #121212;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  animation: loadRotate2 4s linear infinite;
+}
+
+#center-loader{
+  width: 40%;
+  aspect-ratio: 1/1;
+  background-color: #121212;
+  border-radius: 50%;
+}
+
+@keyframes loadRotate{
+  0%{ transform: rotate(0deg);}
+  100%{ transform: rotate(360deg);}
+}
+
+@keyframes loadRotate2{
+  0%{transform: rotate(0deg);}
+  50%{ transform: rotate(0deg);}
+  100%{ transform: rotate(360deg);}
+}
+
+@keyframes loadRotate3{
+  0%{ transform: translate(-50%, -50%) rotate(360deg);}
+  100%{ transform: translate(-50%, -50%) rotate(0deg);}
+}
 
 /* not-found */
 #errorStatus{

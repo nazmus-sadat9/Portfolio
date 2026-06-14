@@ -6,8 +6,8 @@ import Skills from '../Components/Skills.jsx'
 export default function Page(){
 
   return(
-    <div className="w-screen h-screen flex flex-col pt-[7vh] bg-[#FFFFDB]">
-    <div className="pt-[15%] w-full grid sm:grid-cols-1 md:grid-cols-2 content-center">
+    <div className="mt-[12%] w-screen h-screen flex flex-col pt-[7vh] bg-[#FFFFDB]">
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 content-center">
 
       <TextBox />
       <AboutCard />

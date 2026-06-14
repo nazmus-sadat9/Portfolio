@@ -25,17 +25,17 @@ const Skills = () => {
   }, { scope: skillRef , dependencies: []});
 
   return (
-    <div ref={skillRef} className="w-full h-auto p-[10%] gap-[7vw] text-[3vw] md:text-[2vw] content-center grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 bg-[#ffffdb]">
-      <div className="gridBox">Javascript</div>
-      <div className="gridBox">Node</div>
-      <div className="gridBox">React</div>
-      <div className="gridBox">Express</div>
-      <div className="gridBox">C</div>
-      <div className="gridBox">Python</div>
-      <div className="gridBox">Gsap</div>
-      <div className="gridBox">Next</div>
-      <div className="gridBox">Typescript</div>
-      <div className="gridBox">Socket.io</div>
+    <div ref={skillRef} className="w-full h-auto p-[10%] gap-[7vw] text-[3vw] md:text-[1.3rem] content-center grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 bg-[#ffffdb]">
+      <div className="gridBox md:text-[1rem]">Javascript</div>
+      <div className="gridBox md:text-[1rem]">Node</div>
+      <div className="gridBox md:text-[1rem]">React</div>
+      <div className="gridBox md:text-[1rem]">Express</div>
+      <div className="gridBox md:text-[1rem]">C</div>
+      <div className="gridBox md:text-[1rem]">Python</div>
+      <div className="gridBox md:text-[1rem]">Gsap</div>
+      <div className="gridBox md:text-[1rem]">Next</div>
+      <div className="gridBox md:text-[1rem]">Typescript</div>
+      <div className="gridBox md:text-[1rem]">Socket.io</div>
     </div>
   );
 }
