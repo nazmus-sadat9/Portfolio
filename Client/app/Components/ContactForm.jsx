@@ -73,7 +73,8 @@ const ContactForm = () => {
       try {
 
         // fetch the data
-        const response = await fetch('http://localhost:8080/api/contact', {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+        const response = await fetch(`${apiUrl}/api/contact`, {
           method: "POST",
           headers: {'Content-type': 'application/json'},
           body: JSON.stringify({
