@@ -128,7 +128,7 @@ const ContactForm = () => {
 
   return (
 
-    <div ref={container} className="w-[75%] md:w-[65%] h-auto bg-[#121212] grid sm:grid-cols-1 md:grid-cols-2 border-[#121212] border-[0.3em] shadow-[0.8em_0.8em_0_0_#121212] text-[4vw] md:text-[2rem]">
+    <div ref={container} className="w-[75%] md:w-[55%] h-auto bg-[#121212] grid sm:grid-cols-1 md:grid-cols-2 border-[#121212] border-[0.3em] shadow-[0.8em_0.8em_0_0_#121212] text-[4vw] md:text-[2rem]">
       <div className="w-full h-auto bg-[#fff] p-[10%]">
         <h2 className="anime1 text-[#121212] font-extrabold uppercase text-[6.5vw] md:text-[3rem]">Let's <br/>talk</h2>
         <p className="anime1 text-[#555] text-[2vw] md:text-[1.2rem] mb-[5%]">You can share your openion about this website.</p>

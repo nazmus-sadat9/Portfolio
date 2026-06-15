@@ -24,7 +24,7 @@ const MainProject = () => {
       id: 3,
       title: "Portfolio",
       description: "A animated portfolio website.",
-      tags: ["React", "Next", "GSAP", "Node", "Express"],
+      tags: ["Next", "GSAP", "Express"],
       link: ""
     },
 
@@ -47,7 +47,7 @@ const MainProject = () => {
   ];
 
   return (
-    <div className="w-full px-[5%] grid gap-[4%] md:grid-cols-2">
+    <div className="w-full h-[80%] p-[5%] grid gap-[4%] md:grid-cols-3">
 
       {projectData.map((project) => (
         <ProjectCard 
