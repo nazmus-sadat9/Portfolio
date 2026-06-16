@@ -19,7 +19,7 @@ const AboutCard = () => {
   }, {scope: cardRef, dependencies: []});
 
   return (
-    <div ref={cardRef} className="text-[4vw] md:text-[2rem] mx-[7.5%] w-[85%] h-auto flex flex-col justify-between items-center">
+    <div ref={cardRef} className="text-[4vw] md:text-[2rem] w-[85%] flex flex-col mx-[7.5%] justify-around items-center">
 
       <div className="gasp-cards w-full p-[3%] bg-[#fff] border-[#121212] border-[0.2em] flex flex-col shadow-[0.4em_0.4em_0_0_#121212]">
         <span className="text-[#121212] uppercase font-bold text-[3vw] md:text-[1.5rem]">Location</span> 

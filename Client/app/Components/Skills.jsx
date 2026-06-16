@@ -25,7 +25,7 @@ const Skills = () => {
   }, { scope: skillRef , dependencies: []});
 
   return (
-    <div ref={skillRef} className="w-full h-auto p-[10%] gap-[7vw] text-[3vw] md:text-[1.3rem] content-center grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 bg-[#ffffdb]">
+    <div ref={skillRef} className="w-full h-auto py-[10%] px-[5%] gap-[7vw] text-[3vw] md:text-[1.3rem] content-center grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 bg-[#ffffdb]">
       <div className="gridBox md:text-[1rem]">Javascript</div>
       <div className="gridBox md:text-[1rem]">Node</div>
       <div className="gridBox md:text-[1rem]">React</div>
