@@ -56,7 +56,7 @@ const HomeGrid = () => {
         </div>
       </div>
 
-      <p className="text-[#121212] ml-[5%]">v0.7.3</p>
+      <p className="text-[#121212] ml-[5%]">v{__APP_VERSION}</p>
     </div>
     );
 };
