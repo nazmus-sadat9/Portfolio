@@ -9,7 +9,7 @@ const MainProject = () => {
       title: "light-snap",
       description: "This is a Javascript wrapper library.",
       tags: ["Typescript"],
-      link: ""
+      link: "https://github.com/nazmus-sadat9/light-snap.git"
     },
 
     {
@@ -17,7 +17,7 @@ const MainProject = () => {
       title: "Weather app",
       description: "A real time weather application.",
       tags: ["Javascript"],
-      link: ""
+      link: "https://github.com/nazmus-sadat9/Weather-App.git"
     },
 
     {
@@ -25,7 +25,7 @@ const MainProject = () => {
       title: "Portfolio",
       description: "A animated portfolio website.",
       tags: ["Next", "GSAP", "Express"],
-      link: ""
+      link: "https://github.com/nazmus-sadat9/Portfolio.git"
     },
 
     {
@@ -33,7 +33,7 @@ const MainProject = () => {
       title: "OTP Verification",
       description: "A real otp verification system.",
       tags: ["Javascript", "Node", "Express"],
-      link: ""
+      link: "https://github.com/nazmus-sadat9/OTP-Verification.git"
     },
 
     {
@@ -41,7 +41,7 @@ const MainProject = () => {
       title: "Rock Paper Scissor",
       description: "A simple rock paper scissor game.",
       tags: ["Javascript"],
-      link: ""
+      link: "https://github.com/nazmus-sadat9/Rock-Paper-scissor.git"
     }
 
   ];
