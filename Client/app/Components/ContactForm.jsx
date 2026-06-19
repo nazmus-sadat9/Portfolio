@@ -97,9 +97,14 @@ const ContactForm = () => {
         if (response.ok) {
           updateBtnText("SENT");
 
+          // clear the message value
+          setName("");
+          setEmail("");
+          setMsg("");
+
           setTimeout(() => {
             updateBtnText("");
-          }, 3000);
+          }, 4000);
         } 
 
         else {
