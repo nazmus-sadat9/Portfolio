@@ -14,6 +14,8 @@ const ContactForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [msg, setMsg] = useState('');
+  const [btnText, setBtnText] = useState('');
+
 
   const container = useRef(null);
   const iconBox = useRef(null);
@@ -64,6 +66,12 @@ const ContactForm = () => {
     }
   }
 
+  // update button text function
+  function updateBtnText(value) {
+    setBtnText(value);
+  }
+
+
   // submit and send data on node
   async function submition(e){
     e.preventDefault();
@@ -71,6 +79,9 @@ const ContactForm = () => {
     if (isValid) {
 
       try {
+
+        // button text updating 
+        updateBtnText("SENDING");
 
         // fetch the data
         const response = await fetch('/api/contact', {
@@ -84,15 +95,21 @@ const ContactForm = () => {
         });
 
         if (response.ok) {
-          alert('success');
+          updateBtnText("SENT");
+
+          setTimeout(() => {
+            updateBtnText("");
+          }, 3000);
         } 
 
         else {
           alert('something went to wrong!');
+          updateBtnText("");
         }
 
       } catch (err) {
         alert('network error');
+        updateBtnText("");
       }
     }
   }
@@ -143,7 +160,7 @@ const ContactForm = () => {
         <input onChange={nameValidation} value={name} className="anime2 text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" type="text" placeholder="NAME" />
         <input onChange={emailValidation} value={email} className="anime2 text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" type="email" placeholder="EMAIL" />
         <textarea onChange={messageValidation} value={msg} className="anime2 text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" rows="4" type="text" placeholder="MESSAGE"></textarea>
-        <button className="opacity-0 animeBtn text-[#121212] p-[3%] hover:bg-[#121212] hover:text-[#ffffdb] transition-all duration-300 uppercase bg-[#ffffdb] font-bold" type="submit">Send</button>
+        <button className="opacity-0 animeBtn text-[#121212] p-[3%] hover:bg-[#121212] hover:text-[#ffffdb] transition-all duration-300 uppercase bg-[#ffffdb] font-bold" type="submit">{btnText || "SEND"}</button>
       </form>
     </div>
   );
