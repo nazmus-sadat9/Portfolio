@@ -29,7 +29,7 @@ export async function POST(req) {
       from: process.env.AUTHOR_GMAIL,
       to: email,
       subject: "WELCOME",
-      html: `<div style="font-family: sans-serif; padding: 0 1rem; background-color: #121212; color: #ffffff;"><h2>Welcome ${name},</h2><br> <p style="line-height: 1.6; font-weight: 300;">Thank you so much for explore my portfolio. If you have any openion about my website than you can tell me and I will try to improve it.</p> <br><br><br> <p style="text-align: center; border-top: 1px solid #ffffff; padding: 1rem 0; font-weight: 200;">&copy; 2026 SADAT. All rights reserved</p></div>`
+      html: `<div style="font-family: sans-serif; padding: 0 1rem; background-color: #121212; color: #ffffff;"><h2>Welcome ${name},</h2><br> <p style="line-height: 1.6; font-weight: 300;">Thank you so much for explore my portfolio. If you have any openion about my website you can tell me.</p> <br><br><br> <p style="text-align: center; border-top: 1px solid #ffffff; padding: 1rem 0; font-weight: 200;">&copy; 2026 SADAT. All rights reserved</p></div>`
     };
 
     await emailEngine.sendMail(usermail);
