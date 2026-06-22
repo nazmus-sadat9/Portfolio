@@ -2,13 +2,9 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useRef, useState } from "react";
+import ToastBox from "./ToastBox";
 
 const ContactForm = () => {
-
-  // alerts
-  const [emailAlert, setEmailAlert] = useState('');
-  const [nameAlert, setNameAlert] = useState('');
-  const [msgAlert, setMsgAlert] = useState('');
 
   // user data collection 
   const [name, setName] = useState('');
@@ -28,11 +24,11 @@ const ContactForm = () => {
     setName(nameValue);
 
     if (nameValue.length < 3) {
-      setNameAlert('Name at least 4 characters.');
+      
       isValid = false;
     }
     else {
-      setNameAlert('');
+      
     }
   }
 
@@ -44,11 +40,11 @@ const ContactForm = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       
     if (!emailRegex.test(emailValue)) {
-      setEmailAlert('Enter a valid email.');
+      
       isValid = false;
     }
     else {
-      setEmailAlert('');
+      
     }
   }
 
@@ -58,11 +54,12 @@ const ContactForm = () => {
     setMsg(msgValue);
 
     if (msgValue === '') {
-      setMsgAlert('Message can\'t be empty.');
+      //<ToastBox />
+
       isValid = false;
     }
     else {
-      setMsgAlert('');
+      
     }
   }
 
@@ -149,6 +146,8 @@ const ContactForm = () => {
   }, { scope: container, dependencies: [] });
 
   return (
+    <div className="w-full h-full flex-col flex justify-center items-center">
+
 
     <div ref={container} className="w-[75%] md:w-[55%] h-auto bg-[#121212] grid sm:grid-cols-1 md:grid-cols-2 border-[#121212] border-[0.3em] shadow-[0.8em_0.8em_0_0_#121212] text-[4vw] md:text-[2rem]">
       <div className="w-full h-auto bg-[#fff] p-[10%]">
@@ -167,6 +166,9 @@ const ContactForm = () => {
         <textarea onChange={messageValidation} value={msg} className="anime2 text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" rows="4" type="text" placeholder="MESSAGE"></textarea>
         <button className="opacity-0 animeBtn text-[#121212] p-[3%] hover:bg-[#121212] hover:text-[#ffffdb] transition-all duration-300 uppercase bg-[#ffffdb] font-bold" type="submit">{btnText || "SEND"}</button>
       </form>
+    </div>
+
+      <ToastBox title={"Input error"} message={"message can't be empty!"} />
     </div>
   );
 }

@@ -41,7 +41,7 @@ const HomeGrid = () => {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
       <div className="w-full h-auto md:w-[60%] grid md:grid-cols-3 gap-[10%] z-10 p-[10%]">
-        <div ref={box1Ref} className="col-span-3 text-[4vw] md:text-[2rem] p-[10%] bg-[#ffffff] border-[0.2em] border-[#121212] shadow-[0.4em_0.4em_0_0_#121212] w-full flex flex-col justify-center">
+        <div ref={box1Ref} className="w-full col-span-3 text-[4vw] md:text-[2rem] p-[10%] bg-[#ffffff] border-[0.2em] border-[#121212] shadow-[0.4em_0.4em_0_0_#121212] hover:shadow-[0em_0em_0_0_#121212] transition-all duration-300 hover:translate-x-[0.6rem] hover:translate-y-[0.6rem] ease-in-out cursor-pointer flex flex-col justify-center">
           <h2 className="mb-[2%] uppercase font-black text-[6vw] md:text-[3rem] text-[#121212]">sadat //</h2>
           <p className="font-semibold text-[3vw] md:text-[1.8rem] text-[#121212]">I am a web developer.</p>
         </div>
