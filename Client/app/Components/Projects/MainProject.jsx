@@ -1,4 +1,7 @@
-import React from "react";
+"use client";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import ProjectCard from "./ProjectCard";
 
 const MainProject = () => {
@@ -46,17 +49,33 @@ const MainProject = () => {
 
   ];
 
+  const container = useRef(null);
+
+  useGSAP(()=>{
+
+    gsap.from(".project-card", {
+      yPercent: 35,
+      opacity: 0,
+      stagger: 0.2,
+      duration: 0.8,
+      ease: "back.out(2)"
+    });
+
+  }, { scope: container });
+
   return (
-    <div className="w-full h-[80%] p-[5%] grid gap-[4%] md:grid-cols-3">
+    <div ref={container} className="w-full h-[80%] p-[5%] grid gap-[4%] md:grid-cols-3">
 
       {projectData.map((project) => (
-        <ProjectCard 
-          key={project.id}
-          title={project.title}
-          description={project.description}
-          tags={project.tags}
-          link={project.link}
-        />
+        <div key={project.id} className="project-card">
+          <ProjectCard 
+            key={project.id}
+            title={project.title}
+            description={project.description}
+            tags={project.tags}
+            link={project.link}
+          />
+        </div>
       ))}
 
     </div>

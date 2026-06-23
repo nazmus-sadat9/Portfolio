@@ -2,7 +2,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useRef, useState } from "react";
-import ToastBox from "./ToastBox";
 
 const ContactForm = () => {
 
@@ -168,7 +167,7 @@ const ContactForm = () => {
       </form>
     </div>
 
-      <ToastBox title={"Input error"} message={"message can't be empty!"} />
+      
     </div>
   );
 }
