@@ -32,22 +32,26 @@ const HomeGrid = () => {
     <div className="w-full h-full flex flex-col justify-evenly items-center">
       <div ref={container} className="w-full h-auto md:w-[60%] grid md:grid-cols-3 gap-[10%] z-10 p-[10%]">
         <div className="left-box w-full md:col-span-3">
-          <div className="w-full text-[4vw] md:text-[2rem] p-[10%] bg-[#ffffff] border-[0.2em] border-[#121212] shadow-[0.4em_0.4em_0_0_#121212] hover:shadow-[0em_0em_0_0_#121212] transition-all duration-300 hover:translate-x-[0.6rem] hover:translate-y-[0.6rem] ease-in-out cursor-pointer flex flex-col justify-center">
+          <div className="hoverCards w-full text-[4vw] md:text-[2rem] p-[10%] bg-[#ffffff] border-[0.2em] border-[#121212] shadow-[0.4em_0.4em_0_0_#121212] flex flex-col justify-center">
             <h2 className="mb-[2%] uppercase font-black text-[6vw] md:text-[3rem] text-[#121212]">sadat //</h2>
             <p className="font-semibold text-[3vw] md:text-[1.8rem] text-[#121212]">I am a web developer.</p>
           </div>
         </div>
                 
         <div className="bottom-box w-full md:col-span-2">
-          <div className="duration-300 uppercase py-[5%] col-span-2 text-[4vw] md:text-[2rem] md:col-span-2 w-full shadow-[0.4em_0.4em_0_0_#121212] bg-[#121212] text-[#ffffff] flex flex-col justify-center items-center">
+          <div className="hoverCards uppercase py-[5%] col-span-2 text-[4vw] md:text-[2rem] md:col-span-2 w-full shadow-[0.4em_0.4em_0_0_#121212] bg-[#121212] font-bold text-[#ffffff] flex flex-col justify-center items-center">
             <span>2026</span>
             <span>edition</span>
           </div>
         </div>
                 
         <div className="bottom-box w-full col-span-1">
-          <div className="duration-300 py-[5%] w-full h-full font-black text-[4vw] md:text-[2rem] shadow-[0.4em_0.4em_0_0_#121212] border-[0.2em] border-[#121212] flex justify-center items-center bg-[#ffffff] text-black">
-            &#123; &#125;
+          <div className="hoverCards jsBox py-[5%] w-full h-full font-bold text-[4vw] md:text-[2rem] shadow-[0.4em_0.4em_0_0_#121212] border-[0.2em] border-[#121212] flex justify-center items-center bg-[#ffffff] text-[#121212]">
+            &#123;
+              <div className="jsText duration-500 ease opacity-0 overflow-hidden w-0 flex justify-center items-center">
+                JS
+              </div>
+            &#125;
           </div>
         </div>
 

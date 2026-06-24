@@ -23,7 +23,7 @@ const AboutText = () => {
 
   return (
     <div ref={containerRef} className="text-[4vw] md:text-[2rem] mb-[5%] w-full h-full flex justify-center items-center">
-      <div className="w-[85%] h-auto bg-white border-[0.3em] border-[#121212] p-[5%] shadow-[0.6em_0.6em_0_0_#121212]">
+      <div className="hoverCards w-[85%] h-auto bg-white border-[0.3em] border-[#121212] p-[5%] shadow-[0.6em_0.6em_0_0_#121212]">
 
         <h2 className="gsap-texts uppercase font-extrabold text-[4vw] md:text-[2.5rem]">Who is <br/> sadat?</h2>
 

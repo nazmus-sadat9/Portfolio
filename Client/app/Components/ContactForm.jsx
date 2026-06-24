@@ -163,7 +163,7 @@ const ContactForm = () => {
         <input onChange={nameValidation} value={name} className="anime2 text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" type="text" placeholder="NAME" />
         <input onChange={emailValidation} value={email} className="anime2 text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" type="email" placeholder="EMAIL" />
         <textarea onChange={messageValidation} value={msg} className="anime2 text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" rows="4" type="text" placeholder="MESSAGE"></textarea>
-        <button className="opacity-0 animeBtn text-[#121212] p-[3%] hover:bg-[#121212] hover:text-[#ffffdb] transition-all duration-300 uppercase bg-[#ffffdb] font-bold" type="submit">{btnText || "SEND"}</button>
+        <button className="animeBtn opacity-0 text-[#121212] p-[3%] uppercase bg-[#ffffdb] font-bold" type="submit">{btnText || "SEND"}</button>
       </form>
     </div>
 

@@ -104,6 +104,30 @@ body {
   text-stroke: 2.5px #121212;
 }
 
+
+/* Hover Effects */
+
+.hoverCards{
+  transition: 0.3s ease;
+  cursor: pointer;
+  &:hover{
+    transform: translateY(0.5em) translateX(0.5em);
+    box-shadow: 0 0 0 0 #121212;
+  }
+}
+
+.jsBox:hover .jsText{
+  opacity: 1;
+  width: 20%;
+}
+
+.animeBtn{
+  transition: 0.3s ease;
+  &:hover{
+    letter-spacing: 3px;
+  }
+}
+
 /* Navbar style */
 .navbar-links{
   position: relative;
