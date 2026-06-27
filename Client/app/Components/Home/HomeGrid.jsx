@@ -34,21 +34,21 @@ const HomeGrid = () => {
         <div className="left-box w-full md:col-span-3">
           <div className="hoverCards w-full text-[4vw] md:text-[2rem] p-[10%] bg-[#ffffff] border-[0.2em] border-[#121212] shadow-[0.4em_0.4em_0_0_#121212] flex flex-col justify-center">
             <h2 className="mb-[2%] uppercase font-black text-[6vw] md:text-[3rem] text-[#121212]">sadat //</h2>
-            <p className="font-semibold text-[3vw] md:text-[1.8rem] text-[#121212]">I am a web developer.</p>
+            <p className="text-[3vw] md:text-[1.8rem] text-[#121212]">I am a web developer.</p>
           </div>
         </div>
                 
         <div className="bottom-box w-full md:col-span-2">
-          <div className="hoverCards uppercase py-[5%] col-span-2 text-[4vw] md:text-[2rem] md:col-span-2 w-full shadow-[0.4em_0.4em_0_0_#121212] bg-[#121212] font-bold text-[#ffffff] flex flex-col justify-center items-center">
+          <div className="hoverCards uppercase py-[5%] col-span-2 text-[4vw] md:text-[1.6rem] md:col-span-2 w-full shadow-[0.4em_0.4em_0_0_#121212] bg-[#121212] text-[#ffffff] flex flex-col justify-center items-center">
             <span>2026</span>
             <span>edition</span>
           </div>
         </div>
                 
         <div className="bottom-box w-full col-span-1">
-          <div className="hoverCards jsBox py-[5%] w-full h-full font-bold text-[4vw] md:text-[2rem] shadow-[0.4em_0.4em_0_0_#121212] border-[0.2em] border-[#121212] flex justify-center items-center bg-[#ffffff] text-[#121212]">
+          <div className="hoverCards jsBox py-[5%] w-full h-full font-semibold text-[4vw] md:text-[2rem] shadow-[0.4em_0.4em_0_0_#121212] border-[0.2em] border-[#121212] flex justify-center items-center bg-[#ffffff] text-[#121212]">
             &#123;
-              <div className="jsText duration-500 ease opacity-0 overflow-hidden w-0 flex justify-center items-center">
+              <div className="jsText duration-500 ease opacity-0 overflow-hidden w-0 flex justify-center items-center text-sm">
                 JS
               </div>
             &#125;
@@ -57,7 +57,7 @@ const HomeGrid = () => {
 
       </div>
 
-      <p className="text-[#121212] ml-[5%]">v{__APP_VERSION}</p>
+      <p className="text-[#121212] text-2xl ml-[5%]">v{__APP_VERSION}</p>
     </div>
     );
 };

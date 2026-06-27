@@ -64,7 +64,7 @@ const MainProject = () => {
   }, { scope: container });
 
   return (
-    <div ref={container} className="w-full h-[80%] p-[5%] grid gap-[5%] md:grid-cols-3">
+    <div ref={container} className="w-full grid gap-[5%] md:grid-cols-3">
 
       {projectData.map((project) => (
         <div key={project.id} className="project-card">
