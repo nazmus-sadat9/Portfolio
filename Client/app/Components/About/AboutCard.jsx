@@ -32,7 +32,7 @@ const AboutCard = () => {
       </div>
 
       <div className="gasp-cards w-full p-[3%] bg-[#fff] border-[#121212] border-[0.2em] flex flex-col shadow-[0.4em_0.4em_0_0_#121212]">
-        <span className="text-[3vw] text-[#121212] uppercase font-bold md:text-[1.5rem]">Working at</span>
+        <span className="text-[3vw] text-[#121212] uppercase font-bold md:text-[1.5rem]">Current status</span>
         <span className="text-[2.5vw] md:text-[1rem] text-[#121212]">Student</span>
       </div>
 
