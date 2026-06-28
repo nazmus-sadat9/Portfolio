@@ -13,8 +13,8 @@ export const metadata = {
   title: "Portfolio",
   description: "This is a portfolio website.",
   icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/favicon.png?v=1",
+    apple: "/favicon.png?v=1",
   },
 };
 
