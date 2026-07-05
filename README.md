@@ -1,8 +1,26 @@
 # My Portfolio
 
-This is a animated Portfolio website.
+## Build (frontend)
+```
+npm run build
+```
+```
+npm run dev
+```
 
-[visit my portfolio](https://portfolio-2l9v.vercel.app)
+## Start (backend)
+```
+npm start
+```
 
-## About the portfolio
-This website is making by React/Next, GSAP, Node/Express. This portfolio's ui is very clean and modern.
+## To make the portfolio
+### Frontend
+1. React and Next
+2. GSAP
+3. CSS and Tailwind
+
+### Backend
+1. Node 
+2. Express
+3. Nodemailer
+4. Mongoose 

@@ -2,6 +2,8 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useRef, useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faGithub, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 const ContactForm = () => {
 
@@ -80,7 +82,7 @@ const ContactForm = () => {
         updateBtnText("SENDING");
 
         // fetch the data
-        const response = await fetch('/api/contact', {
+        const response = await fetch('http://localhost:8080/api/contact', {
           method: "POST",
           headers: {'Content-type': 'application/json'},
           body: JSON.stringify({
@@ -152,17 +154,17 @@ const ContactForm = () => {
       <div className="w-full h-auto bg-[#fff] p-[10%]">
         <h2 className="anime1 text-[#121212] font-extrabold uppercase text-[6.5vw] md:text-[2.5rem]">Let's <br/>talk</h2>
         <p className="anime1 text-[#555] text-[3vw] md:text-[1.3rem] mb-[5%]">You can share your openion about this website.</p>
-        <div className="anime1 text-[2vw] flex justify-around gap-2">
-          <a href="https://github.com/nazmus-sadat9" target="_blank" rel="noopener noreferrer" className="text-[#121212] no-underline font-semibold md:text-[1rem]">Github</a>
-          <a href="https://www.facebook.com/share/1JcHannGA4/" target="_blank" rel="noopener noreferrer" className="text-[#121212] no-underline font-semibold md:text-[1rem]">Facebook</a>
-          <a href="https://www.instagram.com/lord.sadat?igsh=MTBnaW50bjRiaWl6dQ==" target="_blank" rel="noopener noreferrer" className="text-[#121212] no-underline font-semibold md:text-[1rem]">Instagram</a>
+        <div className="anime1 text-[5vw] flex justify-around gap-2">
+          <FontAwesomeIcon icon={faGithub} href="https://github.com/nazmus-sadat9" target="_blank" rel="noopener noreferrer" className="text-[#121212] md:text-[1rem]" />
+          <FontAwesomeIcon icon={faFacebook} href="https://www.facebook.com/share/1JcHannGA4/" target="_blank" rel="noopener noreferrer" className="text-[#121212] font-semibold md:text-[1rem]" />
+          <FontAwesomeIcon icon={faInstagram} href="https://www.instagram.com/lord.sadat?igsh=MTBnaW50bjRiaWl6dQ==" target="_blank" rel="noopener noreferrer" className="text-[#121212] font-semibold md:text-[1rem]" />
         </div>
       </div>
 
       <form onSubmit={submition} className="anime2 w-full h-auto flex flex-col gap-5 py-[10%] px-[8%] text-[2vw] md:text-[0.8rem]"> 
-        <input onChange={nameValidation} value={name} className="anime2 text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" type="text" placeholder="NAME" />
-        <input onChange={emailValidation} value={email} className="anime2 text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" type="email" placeholder="EMAIL" />
-        <textarea onChange={messageValidation} value={msg} className="anime2 text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" rows="4" type="text" placeholder="MESSAGE"></textarea>
+        <input onChange={nameValidation} name="name" value={name} className="anime2 text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" type="text" placeholder="NAME" />
+        <input onChange={emailValidation} name="email" value={email} className="anime2 text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" type="email" placeholder="EMAIL" />
+        <textarea onChange={messageValidation} name="msg" value={msg} className="anime2 text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" rows="4" type="text" placeholder="MESSAGE"></textarea>
         <button className="animeBtn opacity-0 text-[#121212] p-[3%] uppercase bg-[#ffffdb] font-bold" type="submit">{btnText || "SEND"}</button>
       </form>
     </div>

@@ -213,6 +213,10 @@ body {
 }
 
 .gridBox:hover:nth-child(10){
+  background-color: lightgreen;
+}
+
+.gridBox:hover:nth-child(11){
   background-color: #121212;
   color: #ffffff;
 }

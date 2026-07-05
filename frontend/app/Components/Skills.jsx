@@ -3,6 +3,8 @@ import React, { useRef } from "react";
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faJs, faNode, faReact, faPython, faTypescript, faMongo } from '@fortawesome/free-brands-svg-icons';
 
 const Skills = () => {
 
@@ -26,15 +28,44 @@ const Skills = () => {
 
   return (
     <div ref={skillRef} className="w-full h-auto py-[10%] px-[5%] gap-[7vw] text-[3vw] md:text-[1.3rem] content-center grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 bg-[#ffffdb]">
-      <div className="gridBox md:text-[1rem]">Javascript</div>
-      <div className="gridBox md:text-[1rem]">Node</div>
-      <div className="gridBox md:text-[1rem]">React</div>
+      
+      <div className="gridBox md:text-[1rem]">
+        <FontAwesomeIcon icon={faJs} className="text-[#121212] md:text-[3rem]" />
+        <span className="text-[121212]">Javascript</span>
+      </div>
+
+      <div className="gridBox md:text-[1rem]">
+        <FontAwesomeIcon icon={faNode} className="text-[#121212] md:text-[3rem]" />
+        <span>Node</span>
+      </div>
+
+      <div className="gridBox md:text-[1rem]">
+        <FontAwesomeIcon icon={faReact} className="text-[#121212] md:text-[3rem]" />
+        <span>React</span>
+      </div>
+
       <div className="gridBox md:text-[1rem]">Express</div>
-      <div className="gridBox md:text-[1rem]">C</div>
-      <div className="gridBox md:text-[1rem]">Python</div>
+      
+      <div className="gridBox md:text-[1rem]"> 
+        <span>C</span>
+      </div>
+
+      <div className="gridBox md:text-[1rem]">
+        <FontAwesomeIcon icon={faPython} className="text-[#121212] md:text-[3rem]" />
+        <span>Python</span>
+      </div>
       <div className="gridBox md:text-[1rem]">Gsap</div>
       <div className="gridBox md:text-[1rem]">Next</div>
-      <div className="gridBox md:text-[1rem]">Typescript</div>
+      
+      <div className="gridBox md:text-[1rem]">
+        <FontAwesomeIcon icon={faTypescript} className="text-[#121212] md:text-[3rem]" />
+        <span>Typescript</span>
+      </div>
+
+      <div className="gridBox md:text-[1rem]">
+        
+        <span>Mongodb</span>
+      </div>
       <div className="gridBox md:text-[1rem]">Socket.io</div>
     </div>
   );

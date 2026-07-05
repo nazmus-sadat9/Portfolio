@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const Contact = require("../models/Contact");
 
 exports.sendEmail = async (req, res)=>{
 
@@ -6,7 +7,7 @@ exports.sendEmail = async (req, res)=>{
 
     // Validation
     if (!name || !email || !message) {
-      return res.status(400);
+      return res.sendStatus(400);
     }
 
   try {
@@ -29,16 +30,23 @@ exports.sendEmail = async (req, res)=>{
       from: process.env.AUTHOR_GMAIL,
       to: email,
       subject: "WELCOME",
-      html: `<div style="font-family: sans-serif; padding: 0 1rem; background-color: #121212; color: #ffffff;"><h2>Welcome ${name},</h2><br> <p style="line-height: 1.6; font-weight: 300;">Thank you so much for explore my portfolio. If you have any openion about my website you can tell me.</p> <br><br><br> <p style="text-align: center; border-top: 1px solid #ffffff; padding: 1rem 0; font-weight: 200;">&copy; 2026 SADAT. All rights reserved</p></div>`
+      html: `<div style="font-family: sans-serif; padding: 1rem; background-color: #121212; color: #ffffff;"><h2>Welcome ${name},</h2><br> <p style="line-height: 1.6; font-weight: 300;">Thank you so much for explore my portfolio. If you have any openion about my website you can tell me.</p> <br><br><br> <p style="text-align: center; border-top: 1px solid #ffffff; padding: 1rem 0; font-weight: 200;">&copy; 2026 SADAT. All rights reserved</p></div>`
     };
 
     await emailEngine.sendMail(usermail);
     await emailEngine.sendMail(authormail);
 
-    return res.status(200);
+    // add in database
+    await Contact.create({
+      name,
+      email,
+      message
+    });
+
+    return res.res.sendStatus(200);
 
   } catch (err) {
     console.error("API Error:", err);
-    return res.status(500);
+    return res.sendStatus(500);
   }
 }
