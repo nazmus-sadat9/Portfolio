@@ -4,7 +4,9 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faJs, faNode, faReact, faPython, faTypescript, faMongo } from '@fortawesome/free-brands-svg-icons';
+import { Express, Nextdotjs, Mongodb } from '@icons-pack/react-simple-icons';
+import { faJs, faNode, faReact, faPython, faTypescript} from '@fortawesome/free-brands-svg-icons';
+//import { faBolt, faDatabase } from '@fortawesome/free-solid-svg-icons'
 
 const Skills = () => {
 
@@ -44,7 +46,10 @@ const Skills = () => {
         <span>React</span>
       </div>
 
-      <div className="gridBox md:text-[1rem]">Express</div>
+      <div className="gridBox md:text-[1rem]">
+    
+        Express
+      </div>
       
       <div className="gridBox md:text-[1rem]"> 
         <span>C</span>
@@ -54,7 +59,10 @@ const Skills = () => {
         <FontAwesomeIcon icon={faPython} className="text-[#121212] md:text-[3rem]" />
         <span>Python</span>
       </div>
-      <div className="gridBox md:text-[1rem]">Gsap</div>
+      <div className="gridBox md:text-[1rem]">
+        
+        <span>GSAP</span>
+      </div>
       <div className="gridBox md:text-[1rem]">Next</div>
       
       <div className="gridBox md:text-[1rem]">

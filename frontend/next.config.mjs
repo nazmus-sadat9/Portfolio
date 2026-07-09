@@ -3,6 +3,8 @@ const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+
   reactCompiler: true,
   // Note: 'output: export' and 'basePath' were removed to support Vercel and API routes.
   images: {
