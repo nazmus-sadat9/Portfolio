@@ -43,10 +43,9 @@ exports.sendEmail = async (req, res)=>{
       message
     });
 
-    return res.res.sendStatus(200);
+    return res.sendStatus(200);
 
   } catch (err) {
-    console.error("API Error:", err);
     return res.sendStatus(500);
   }
 }

@@ -8,10 +8,10 @@ const projectRouter = require("./routes/projectRoutes");
 const app = express();
 
 app.use(cors({
-  origin: "*"
+  origin: "*" //"https://portfolio-frontend-jfy0.onrender.com"
 }));
 
-app.use(express.json);
+app.use(express.json());
 
 cnnectDB();
 
