@@ -1,6 +1,6 @@
 {
   "name": "backend",
-  "version": "0.7.12",
+  "version": "0.4.7",
   "description": "This is backend of my portfolio.",
   "main": "server.js",
   "scripts": {
