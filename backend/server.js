@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const cnnectDB = require("./config/db");
+const connectDB = require("./config/db");
 const contactRouter = require("./routes/contactRoute");
 const projectRouter = require("./routes/projectRoutes");
 
@@ -13,7 +13,7 @@ app.use(cors({
 
 app.use(express.json());
 
-cnnectDB();
+connectDB();
 
 // contact 
 app.use('/api/contact', contactRouter);
