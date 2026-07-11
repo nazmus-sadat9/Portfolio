@@ -2,11 +2,9 @@
 export default function loading() {
 
   return(
-    <div id="mainLoadingBox">
-      <div id="loader-one">
-        <div id="loader-two">
-          <div id="center-loader"></div>
-        </div>
+    <div className="main">
+      <div className="primaryLoader">
+        <div className="loader"></div>
       </div>
     </div>
   );

@@ -4,104 +4,62 @@ body {
   font-family: var(--font-space-grotesk), sans-serif;
 }
 
-/* loading part */
+:root{
+  --black: #121212;
+  --soft-yellow: #ffffdb;
+  --white: #ffffff;
+}
 
-#mainLoadingBox{
+
+/* loading section */
+.main{
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-  background-color: #ffffdb;
+  height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--soft-yellow);
+  overflow: hidden;
+}
 
+
+.primaryLoader{
+  background-color: var(--black);
+  width: 165px;
+  height: 250px;
+  clip-path: polygon(45% 0, 72.9% 0, 79% 10%, 60% 35.2%, 91% 35.3%, 100% 45%, 60% 97%, 30% 97%, 22.8% 88%, 43% 62%, 10% 62%, 5% 52.8% );
+}
+
+.loader{
+  width: 150px;
+  height: 220px;
+  background-color: var(--white);
+  clip-path: polygon(49.5% 0, 80% 0, 50% 40%, 100% 40%, 55% 100%, 25% 100%, 55% 60%, 0 60% );
+  position: relative;
+  overflow: hidden;
   &::after{
     content: "";
     position: absolute;
-    left: 50%;
-    top: 50%;
-    margin: 0 auto;
-    width: 30%;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    background-color: transparent;
-    border: 0.1em solid #121212;
-    transform: translate(-50%, -50%);
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    background-color: #F44937;
+    animation: fillup 3s ease infinite;
   }
-
-  &::before{
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 25%;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    border: 0.1em dotted #121212;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    background-color: transparent; 
-    transform: translate(-50%, -50%);
-    animation: loadRotate3 4s ease-in-out infinite;
-  }
+  
 }
 
-#loader-one{
-  width: 20%;
-  aspect-ratio: 1/1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  border-radius: 50%;
-  border: 0.1em solid var(--primary);
-  border-left-color: transparent;
-  border-right-color: transparent;
-  animation: loadRotate 3s linear infinite;
-}
 
-#loader-two{
-  width: 70%;
-  aspect-ratio: 1/1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background-color: transparent;
-  border: 0.1em solid #121212;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  animation: loadRotate2 4s linear infinite;
-}
-
-#center-loader{
-  width: 40%;
-  aspect-ratio: 1/1;
-  background-color: #121212;
-  border-radius: 50%;
-}
-
-@keyframes loadRotate{
-  0%{ transform: rotate(0deg);}
-  100%{ transform: rotate(360deg);}
-}
-
-@keyframes loadRotate2{
-  0%{transform: rotate(0deg);}
-  50%{ transform: rotate(0deg);}
-  100%{ transform: rotate(360deg);}
-}
-
-@keyframes loadRotate3{
-  0%{ transform: translate(-50%, -50%) rotate(360deg);}
-  100%{ transform: translate(-50%, -50%) rotate(0deg);}
+@keyframes fillup{
+  0%{height: 0}
+  100%{height: 100%}
 }
 
 /* not-found */
 #errorStatus{
-  -webkit-text-stroke: 2.5px #121212;
-  text-stroke: 2.5px #121212;
+  -webkit-text-stroke: 2.5px var(--black);
+  text-stroke: 2.5px var(--black);
 }
 
 
@@ -143,12 +101,12 @@ body {
     width: 100%;
     transform-origin: center;
     transform: scaleX(0);
-    background-color: #121212;
+    background-color: var(--black);
     transition: transform 0.25s ease-out;
   }
 
   &:hover{
-    color: #121212;
+    color: var(--black);
   }
 }
 
@@ -164,8 +122,8 @@ body {
   flex-direction: column;
   width: 100%;
   aspect-ratio: 1/1;
-  background-color: #ffffff;
-  color: #121212;
+  background-color: var(-white);
+  color: var(-black);
   transition: 0.3s linear;
   border: 0.4em solid #121212;
   cursor: pointer;
@@ -220,3 +178,4 @@ body {
   background-color: #121212;
   color: #ffffff;
 }
+
