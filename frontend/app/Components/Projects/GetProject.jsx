@@ -16,7 +16,7 @@ const GetProject = () => {
     }
   }
 
-  const projects = await getProjects();
+  const projects = getProjects();
 
   return (
     <div className="">
