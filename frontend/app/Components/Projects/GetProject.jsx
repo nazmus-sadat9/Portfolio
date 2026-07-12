@@ -1,40 +1,27 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef} from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-
-const GetProject = () => {
-
-  async function getProjects() {
-    try {
-      let res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/projects`);
-
-      return res.json();
-    } catch (err) {
-      console.log("failed to fetch", err);
-    }
-  }
-
-  const projects = getProjects();
+const GetProject = ({projects}) => {
 
   return (
-    <div className="">
-      <div className="">
-        {projects.map((project)=>
-          <div key={project.id}>
-            <h2>{project.title}</h2>
-            <p>{project.ddescription}</p>
+    <div className="min-h-screen grid grid-cols-1 md:grid-cols-3 gap-8">
+      {projects.map((project)=>
+        <div key={project.id} className="hoverCards bg-[#ffffff] flex justify-evenly flex-col items-center p-[5%] border-[0.2em] border-[#121212] shadow-[0.8em_0.8em_0_0_#121212]">
+          <h2 className="text-[1.5rem] font-bold text-[#121212] mb-[2%]">{project.title}</h2>
+          <p className="text-[#555] mb-[2%]">{project.description}</p>
 
-            {project.tags.map((tag, index)=>
-              <span key={index}>{tag}</span>
-            )}
-
-            <a href={project.link} target="_blank" rel="noopener noreferrer" >View code</a>
+          <div className="w-full text-[0.8rem] flex justify-evenly mb-[3%]">
+          {project.tags.map((tag, index)=>
+            <span className="bg-[#121212] text-[#ffffff] px-2 py-1" key={index}>{tag}</span>
+          )}
           </div>
+
+          <a className="w-full py-2 text-center border-[0.2em] border-[#121212] text-[#121212]" href={project.link} target="_blank" rel="noopener noreferrer" >View code</a>
+        </div>
         )}
       </div>
-    </div>
   )
 }
 

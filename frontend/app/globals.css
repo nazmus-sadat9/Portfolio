@@ -10,6 +10,16 @@ body {
   --white: #ffffff;
 }
 
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+}
+
 
 /* loading section */
 .main{
@@ -70,7 +80,7 @@ body {
   cursor: pointer;
   &:hover{
     transform: translateY(0.5em) translateX(0.5em);
-    box-shadow: 0 0 0 0 #121212;
+    box-shadow: 0 0 0 0 var(--black);
   }
 }
 
@@ -122,8 +132,8 @@ body {
   flex-direction: column;
   width: 100%;
   aspect-ratio: 1/1;
-  background-color: var(-white);
-  color: var(-black);
+  background-color: var(--white);
+  color: var(--black);
   transition: 0.3s linear;
   border: 0.4em solid #121212;
   cursor: pointer;
