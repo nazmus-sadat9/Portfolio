@@ -6,7 +6,7 @@ import { useGSAP } from "@gsap/react";
 const GetProject = ({projects}) => {
 
   return (
-    <div className="min-h-screen grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="min-h-screen grid grid-cols-1 md:grid-rows-4 md:grid-cols-3 gap-8">
       {projects.map((project)=>
         <div key={project.id} className="hoverCards bg-[#ffffff] flex justify-evenly flex-col items-center p-[5%] border-[0.2em] border-[#121212] shadow-[0.8em_0.8em_0_0_#121212]">
           <h2 className="text-[1.5rem] font-bold text-[#121212] mb-[2%]">{project.title}</h2>
