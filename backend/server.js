@@ -23,6 +23,7 @@ app.use("/api/projects", projectRouter);
 
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, ()=>{
+
+app.listen(PORT, () => {
   console.log(`server is running at ${PORT}`);
 });

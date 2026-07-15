@@ -5,6 +5,10 @@ exports.sendEmail = async (req, res)=>{
 
   const { name, email, message } = req.body;
 
+  console.log(name, email, message);
+  console.log(process.env.AUTHOR_GMAIL);
+  console.log(process.env.AUTHOR_PASS);
+
     // Validation
     if (!name || !email || !message) {
       return res.sendStatus(400);

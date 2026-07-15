@@ -8,10 +8,10 @@ import { faInstagram, faGithub, faFacebook } from '@fortawesome/free-brands-svg-
 const ContactForm = () => {
 
   // user data collection 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [msg, setMsg] = useState('');
-  const [btnText, setBtnText] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [msg, setMsg] = useState("");
+  const [btnText, setBtnText] = useState("");
 
 
   const container = useRef(null);
@@ -69,10 +69,11 @@ const ContactForm = () => {
     setBtnText(value);
   }
 
-
   // submit and send data on node
   async function submition(e){
     e.preventDefault();
+
+    console.log(process.env.NEXT_PUBLIC_API_URL); // temporary
 
     if (isValid) {
 
@@ -84,7 +85,7 @@ const ContactForm = () => {
         // fetch the data
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contact`, {
           method: "POST",
-          headers: {'Content-type': 'application/json'},
+          headers: {"Content-type": "application/json"},
           body: JSON.stringify({
             name: name,
             email: email,
@@ -106,12 +107,12 @@ const ContactForm = () => {
         } 
 
         else {
-          alert('something went to wrong!');
+          alert("something went to wrong!");
           updateBtnText("");
         }
 
       } catch (err) {
-        alert('network error');
+        alert("network error");
         updateBtnText("");
       }
     }
@@ -126,7 +127,7 @@ const ContactForm = () => {
       duration: 0.5,
       stagger: 0.1,
       opacity: 0,
-      ease: 'back.out(2)'
+      ease: "back.out(2)"
     });
 
     tl.from(".anime2", {
@@ -134,14 +135,14 @@ const ContactForm = () => {
       duration: 0.3,
       stagger: 0.1,
       opacity: 0,
-      ease: 'back.out(2)'
+      ease: "back.out(2)"
     });
 
     tl.from(".animeBtn", {
       y: 20,
       opacity: 1,
       duration: 0.3,
-      ease: 'back.out(2)'
+      ease: "back.out(2)"
     });
 
   }, { scope: container, dependencies: [] });
