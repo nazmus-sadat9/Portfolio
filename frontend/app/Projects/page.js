@@ -12,7 +12,8 @@ async function getProjects() {
     
     return await res.json();
 
-    console.log(res.json()); // temporary
+    alert(process.env.NEXT_PUBLIC_API_URL)
+    alert(res.json());
 
   } catch (err) {
     return [];
