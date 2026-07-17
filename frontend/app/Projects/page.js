@@ -2,18 +2,15 @@ import GetProject from "../Components/Projects/GetProject";
 
 // get projects data from backend
 async function getProjects() {
-  console.log(process.env.NEXT_PUBLIC_API_URL); // temporary
+  let apiUrl = process.env.NEXT_PUBLIC_API_URL; 
 
   try {
     // fetch to the url
-    let res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/projects`, { cache: 'no-store'});
+    let res = await fetch(`${apiUrl}/api/projects`, { cache: 'no-store'});
     
     if (!res.ok) return [];
     
     return await res.json();
-
-    alert(process.env.NEXT_PUBLIC_API_URL)
-    alert(res.json());
 
   } catch (err) {
     return [];
