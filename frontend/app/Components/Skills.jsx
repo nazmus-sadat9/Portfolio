@@ -4,7 +4,6 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Express, Nextdotjs, Mongodb } from '@icons-pack/react-simple-icons';
 import { faJs, faNode, faReact, faPython, faTypescript} from '@fortawesome/free-brands-svg-icons';
 //import { faBolt, faDatabase } from '@fortawesome/free-solid-svg-icons'
 
