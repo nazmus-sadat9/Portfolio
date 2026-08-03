@@ -73,8 +73,6 @@ const ContactForm = () => {
   async function submition(e){
     e.preventDefault();
 
-    console.log(process.env.NEXT_PUBLIC_API_URL); // temporary
-
     if (isValid) {
 
       try {
@@ -119,7 +117,7 @@ const ContactForm = () => {
   }
 
   // animations
-  useGSAP(()=>{
+  useGSAP(() => {
 
     const tl = gsap.timeline();
     tl.from(".anime1", {
@@ -154,7 +152,7 @@ const ContactForm = () => {
     <div ref={container} className="w-[75%] md:w-[55%] h-auto bg-[#121212] grid sm:grid-cols-1 md:grid-cols-2 border-[#121212] border-[0.3em] shadow-[0.8em_0.8em_0_0_#121212] text-[4vw] md:text-[2rem]">
       <div className="w-full h-auto bg-[#fff] p-[10%]">
         <h2 className="anime1 text-[#121212] font-extrabold uppercase text-[6.5vw] md:text-[2.5rem]">Let's <br/>talk</h2>
-        <p className="anime1 text-[#555] text-[3vw] md:text-[1.3rem] mb-[5%]">You can share your openion about this website.</p>
+        <p className="anime1 text-[#555] text-[3vw] md:text-[1.3rem] mb-[5%]">You can share your opinion about this website.</p>
         <div className="anime1 text-[5vw] flex justify-around gap-2">
           <FontAwesomeIcon icon={faGithub} href="https://github.com/nazmus-sadat9" target="_blank" rel="noopener noreferrer" className="text-[#121212] md:text-[1rem]" />
           <FontAwesomeIcon icon={faFacebook} href="https://www.facebook.com/share/1JcHannGA4/" target="_blank" rel="noopener noreferrer" className="text-[#121212] font-semibold md:text-[1rem]" />
