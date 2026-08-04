@@ -8,7 +8,7 @@ const getProject = async (req, res) => {
     const projects = await Project.find({});
     res.status(200).json(projects);
 
-    console.log(projects); // temporary
+    console.log(projects);
 
   } catch(err){
     res.status(500);

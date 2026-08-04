@@ -125,7 +125,17 @@ body {
 }
 
 /* Skill cards */
-.gridBox{
+.js,
+.ts,
+.clang,
+.py,
+.react,
+.node,
+.gsap,
+.next,
+.ex,
+.socket,
+.mongo{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,58 +144,74 @@ body {
   aspect-ratio: 1/1;
   background-color: var(--white);
   color: var(--black);
-  transition: 0.3s linear;
+  transition: all 0.3s ease;
   border: 0.4em solid #121212;
   cursor: pointer;
   font-weight: 900;
   box-shadow: 0.8em 0.8em 0 #121212;
 }
 
-.gridBox:hover:nth-child(1){
+.js:hover{
   background-color: #ffd558;
 }
 
-.gridBox:hover:nth-child(2){
-  background-color: #58ff87;
-}
-
-.gridBox:hover:nth-child(3){
-  background-color: #61DBFB;
-}
-
-.gridBox:hover:nth-child(4){
-  background-color: #E3E3E3;
-}
-
-.gridBox:hover:nth-child(5){
-  background-color: #479EE8;
-}
-
-.gridBox:hover:nth-child(6){
-  background-color: #3776ab;
-  color: #ffffff;
-}
-
-.gridBox:hover:nth-child(7){
-  background-color: #7ACE02;
-}
-
-.gridBox:hover:nth-child(8){
-  background-color: #1C1C1C;
-  color: #ffffff;
-}
-
-.gridBox:hover:nth-child(9){
+.ts:hover{
   background-color: #3178C6;
   color: #ffffff;
 }
 
-.gridBox:hover:nth-child(10){
-  background-color: lightgreen;
+.ts:hover .icon{
+  color: #ffffff;
 }
 
-.gridBox:hover:nth-child(11){
-  background-color: #121212;
+.clang:hover{
+  background-color: #282C34;
+  color: #ffffff;
+}
+
+.clang:hover .icon{
+  color: #ffffff;
+}
+
+.py:hover{
+  background-color: #3776AB;
+  color: #ffffff;
+}
+
+.py:hover .icon{
+  color: #ffffff;
+}
+
+.react:hover{
+  background-color: #61DAFB;
+}
+
+.node:hover{
+  background-color: #5FA04E;
+  color: #ffffff;
+}
+
+.gsap:hover{
+  background-color: #88CE02;
+}
+
+.next:hover{
+  background-color: #1C1C1C;
+  color: #ffffff;
+}
+
+.ex:hover{
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.socket:hover{
+  background-color: #1C1C1C;
+  color: #ffffff;
+}
+
+.mongo:hover{
+  background-color: #13AA52;
   color: #ffffff;
 }
 

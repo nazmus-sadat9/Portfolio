@@ -2,102 +2,114 @@
 import React, { useRef } from "react";
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faJs, faNode, faReact, faPython, faTypescript} from '@fortawesome/free-brands-svg-icons';
-//import { faBolt, faDatabase } from '@fortawesome/free-solid-svg-icons'
+import { faC } from '@fortawesome/free-solid-svg-icons';
+
+// resgister of ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
 const Skills = () => {
 
-  const skillRef = useRef(null);
+  const container = useRef(null);
 
   useGSAP(()=>{
+    const cards = gsap.utils.toArray('.fade-up');
 
-    gsap.fromTo(".gridBox", {
-      opacity: 0,
-      scale: 0.6
-    }, {
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        delay: 0.8,
-        stagger: 0.1,
-        ease: "back.out(2)"
-      });
-
-  }, { scope: skillRef , dependencies: []});
+    /*
+    cards.forEach((card) => {
+      gsap.to(card, {
+          opacity: 1,
+          y: 100,
+          duration: 0.6,
+          ease: "back.out(2)",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 60%",
+            end: "bottom bottom",
+            markers: true
+          }
+        }
+      )
+    });*/
+  }, { scope: container });
 
   return (
-    <div ref={skillRef} className="w-full h-auto py-[10%] px-[5%] text-[3vw] md:text-[1.3rem] bg-[#ffffdb] grid grid-cols-1 gap-[5%]">
+    <div ref={container} className="w-full h-auto py-[10%] px-[5%] text-[3vw] md:text-[1.3rem] bg-[#ffffdb] grid grid-cols-1 gap-[5%]">
       
-      <div className="bg-[#fff] shadow-[0.8em_0.8rem_0_0_#121222] border-[#121212] border-[0.4em]">
+      <div  className="fade-up bg-[#fff] shadow-[0.8em_0.8rem_0_0_#121222] border-[#121212] border-[0.4em]">
 
         <h2 className="w-full bg-[#121212] text-[2rem] py-[3%] px-[2%] text-[#ffffdb] font-black">Languages</h2>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-[2rem] p-[5%]">
           
-          <div className="gridBox md:text-[1rem]">
+          <div className="js md:text-[1rem]">
             <FontAwesomeIcon icon={faJs} className="text-[#121212] md:text-[3rem]" />
             <span className="text-[121212]">Javascript</span>
           </div>
 
-          <div className="gridBox md:text-[1rem]">
-            <FontAwesomeIcon icon={faNode} className="text-[#121212] md:text-[3rem]" />
-            <span>Node</span>
+          <div className="ts md:text-[1rem]">
+            <FontAwesomeIcon icon={faTypescript} className="icon text-[#121212] md:text-[3rem]" />
+            <span>Typescript</span>
           </div>
 
-          <div className="gridBox md:text-[1rem]">
-            <FontAwesomeIcon icon={faReact} className="text-[#121212] md:text-[3rem]" />
-            <span>React</span>
+          <div className="clang md:text-[1rem]">
+            <FontAwesomeIcon icon={faC} className="icon text-[#121212] md:text-[3rem]" />
+            <span>C</span>
           </div>
 
-          <div className="gridBox md:text-[1rem]">
-    
-            Express
+          <div className="py md:text-[1rem]">
+            <FontAwesomeIcon icon={faPython} className="icon text-[#121212] md:text-[3rem]" />
+            <span>Python</span>
           </div>
 
         </div>
       </div>
 
-      <div className="bg-[#fff] shadow-[0.8em_0.8rem_0_0_#121222] border-[#121212] border-[0.4em]">
+      <div className="fade-up bg-[#fff] shadow-[0.8em_0.8rem_0_0_#121222] border-[#121212] border-[0.4em]">
 
         <h2 className="w-full bg-[#121212] text-[2rem] py-[3%] px-[2%] text-[#ffffdb] font-black">Libraries &#38; Frameworks</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-[2rem] p-[5%]">
       
-          <div className="gridBox md:text-[1rem]"> 
-            <span>C</span>
+          <div className="react md:text-[1rem]">
+            <FontAwesomeIcon icon={faReact} className="text-[#121212] md:text-[3rem]" />
+            <span>React</span>
           </div>
 
-          <div className="gridBox md:text-[1rem]">
-            <FontAwesomeIcon icon={faPython} className="text-[#121212] md:text-[3rem]" />
-            <span>Python</span>
+          <div className="node md:text-[1rem]">
+            <FontAwesomeIcon icon={faNode} className="text-[#121212] md:text-[3rem]" />
+            <span>Node</span>
           </div>
-          <div className="gridBox md:text-[1rem]">
-        
+
+          <div className="gsap md:text-[1rem]">      
             <span>GSAP</span>
           </div>
-          <div className="gridBox md:text-[1rem]">Next</div>
+
+          <div className="next md:text-[1rem]">
+            <span>Next</span>
+          </div>
       
-          <div className="gridBox md:text-[1rem]">
-            <FontAwesomeIcon icon={faTypescript} className="text-[#121212] md:text-[3rem]" />
-            <span>Typescript</span>
+          <div className="ex md:text-[1rem]">
+            <span>Express</span>
+          </div>
+
+          <div className="socket md:text-[1rem]">
+            <span>Socket.io</span>
           </div>
 
         </div>
       </div>
 
-      <div className="bg-[#fff] shadow-[0.8em_0.8rem_0_0_#121222] border-[#121212] border-[0.4em]">
+      <div className="fade-up bg-[#fff] shadow-[0.8em_0.8rem_0_0_#121222] border-[#121212] border-[0.4em]">
 
         <h2 className="w-full bg-[#121212] text-[2rem] py-[3%] px-[2%] text-[#ffffdb] font-black">Database</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-[2rem] p-[5%]">
 
-          <div className="gridBox md:text-[1rem]">
+          <div className="mongo md:text-[1rem]">
         
             <span>Mongodb</span>
-          </div>
-
-          <div className="gridBox md:text-[1rem]">
-            Socket.io
           </div>
 
         </div>

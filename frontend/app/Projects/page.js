@@ -22,8 +22,8 @@ export default async function page() {
   const projects = await getProjects();
 
   return (
-    <div className="h-screen w-screen bg-[#ffffdb] pt-[12vh] px-[5%] overflow-x-hidden">
-      <h1 className="mb-[5%] font-black text-[5vw] md:text-[2.5rem] text-center">My Projects</h1>
+    <div className="h-screen w-screen bg-[#ffffdb] py-[15%] px-[5%] overflow-x-hidden">
+      <h1 className="mb-[5%] font-black text-[1rem] md:text-[2.5rem] p-[2%] bg-[#121212] text-[#ffffdb] inline-block shadow-[0.4em_0.4em_0_0_#121212]">My Projects</h1>
       <GetProject projects={projects} />
     </div>
   );
