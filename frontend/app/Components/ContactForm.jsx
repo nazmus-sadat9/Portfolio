@@ -1,9 +1,9 @@
-'use client';
+"use client";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useRef, useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faGithub, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faGithub, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 const ContactForm = () => {
 
@@ -100,7 +100,9 @@ const ContactForm = () => {
           setMsg("");
 
           setTimeout(() => {
+
             updateBtnText("");
+
           }, 4000);
         } 
 
