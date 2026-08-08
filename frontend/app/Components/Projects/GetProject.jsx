@@ -9,7 +9,7 @@ const GetProject = ({projects}) => {
 
   return (
     <div className="min-h-screen grid grid-cols-1 md:grid-cols-3 md:grid-rows-4 gap-8">
-      {projects.map((project)=>
+      {projects.map((project)=>(
         <div key={project.id} className="hoverCards bg-[#ffffff] border-[0.2em] border-[#000] shadow-[0.8em_0.8em_0_0_#121212]">
           <h2 className="text-[1.5rem] font-black text-[#ffffdb] bg-[#121212] w-full text-center py-[7%] mb-[4%]">{project.title}</h2>
           
@@ -18,9 +18,9 @@ const GetProject = ({projects}) => {
           </div>
 
           <div className="w-full text-[0.8rem] flex justify-evenly mb-[3%]">
-          {project.tags.map((tag, index)=>
+          {project.tags.map((tag, index)=>(
             <span className="bg-[#ffffdb] text-[#121212] font-bold px-2 py-1 border-[0.2em] border-[#121212]" key={index}>{tag}</span>
-          )}
+          ))}
           </div>
 
           <div className="w-full p-[5%]">
@@ -30,7 +30,7 @@ const GetProject = ({projects}) => {
             </a>
           </div>
         </div>
-        )}
+        ))}
       </div>
   )
 }
