@@ -2,6 +2,7 @@ import React from 'react';
 import TextBox from '../Components/About/AboutText';
 import AboutCard from '../Components/About/AboutCard';
 import Skills from '../Components/About/Skills';
+import MyJson from "../Components/About/MyJson";
 
 export default function Page(){
 

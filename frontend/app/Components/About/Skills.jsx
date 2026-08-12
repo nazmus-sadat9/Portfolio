@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faJs, faNode, faReact, faPython, faTypescript} from '@fortawesome/free-brands-svg-icons';
 import { faC } from '@fortawesome/free-solid-svg-icons';
+import MyJson from "./MyJson";
 
 // resgister of ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -46,22 +47,22 @@ const Skills = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-[2rem] p-[5%]">
           
           <div className="js md:text-[1rem]">
-            <FontAwesomeIcon icon={faJs} className="text-[#121212] md:text-[3rem]" />
+            <FontAwesomeIcon icon={faJs} className="text-[#121212] text-[3rem] md:text-[4rem]" />
             <span className="text-[121212]">Javascript</span>
           </div>
 
           <div className="ts md:text-[1rem]">
-            <FontAwesomeIcon icon={faTypescript} className="icon text-[#121212] md:text-[3rem]" />
+            <FontAwesomeIcon icon={faTypescript} className="icon text-[#121212] text-[3rem] md:text-[4rem]" />
             <span>Typescript</span>
           </div>
 
           <div className="clang md:text-[1rem]">
-            <FontAwesomeIcon icon={faC} className="icon text-[#121212] md:text-[3rem]" />
-            <span>C</span>
+            <FontAwesomeIcon icon={faC} className="icon text-[#121212] text-[3rem] md:text-[4rem]" />
+            <span>Clang</span>
           </div>
 
           <div className="py md:text-[1rem]">
-            <FontAwesomeIcon icon={faPython} className="icon text-[#121212] md:text-[3rem]" />
+            <FontAwesomeIcon icon={faPython} className="icon text-[#121212] text-[3rem] md:text-[4rem]" />
             <span>Python</span>
           </div>
 
@@ -74,12 +75,12 @@ const Skills = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-[2rem] p-[5%]">
       
           <div className="react md:text-[1rem]">
-            <FontAwesomeIcon icon={faReact} className="text-[#121212] md:text-[3rem]" />
+            <FontAwesomeIcon icon={faReact} className="text-[#121212] text-[3rem] md:text-[4rem]" />
             <span>React</span>
           </div>
 
           <div className="node md:text-[1rem]">
-            <FontAwesomeIcon icon={faNode} className="text-[#121212] md:text-[3rem]" />
+            <FontAwesomeIcon icon={faNode} className="icon text-[#121212] text-[3rem] md:text-[4rem]" />
             <span>Node</span>
           </div>
 
@@ -114,6 +115,11 @@ const Skills = () => {
 
         </div>
       </div>
+
+      <div className="fade-up">
+        <MyJson />
+      </div>
+
     </div>
   );
 }

@@ -137,7 +137,7 @@ body {
 .socket,
 .mongo{
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
   width: 100%;
@@ -188,6 +188,10 @@ body {
 
 .node:hover{
   background-color: #5FA04E;
+  color: #ffffff;
+}
+
+.node:hover .icon{
   color: #ffffff;
 }
 
