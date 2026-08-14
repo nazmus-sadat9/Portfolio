@@ -7,114 +7,79 @@ import { faInstagram, faGithub, faFacebook } from "@fortawesome/free-brands-svg-
 
 const ContactForm = () => {
 
-  // user data collection 
+// Form State
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
-  const [btnText, setBtnText] = useState("");
-
+  
+  // UI State
+  const [btnText, setBtnText] = useState("SEND");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const container = useRef(null);
-  const iconBox = useRef(null);
 
-  let isValid = true;
-
-  // update name 
-  function nameValidation(e){
-    const nameValue = e.target.value;
-    setName(nameValue);
-
-    if (nameValue.length < 3) {
-      
-      isValid = false;
-    }
-    else {
-      
-    }
-  }
-
-  // update email
-  function emailValidation(e){
-    const emailValue = e.target.value;
-    setEmail(emailValue);
+  // Validate the form 
+  const validateForm = () => {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      
-    if (!emailRegex.test(emailValue)) {
-      
-      isValid = false;
+
+    if (name.trim().length < 3) {
+      setErrorMsg("Name must be at least 3 characters.");
+      return false;
     }
-    else {
-      
+    if (!emailRegex.test(email)) {
+      setErrorMsg("Please enter a valid email address.");
+      return false;
     }
-  }
-
-  // update message
-  function messageValidation(e){
-    const msgValue = e.target.value;
-    setMsg(msgValue);
-
-    if (msgValue === '') {
-      //<ToastBox />
-
-      isValid = false;
+    if (!msg.trim()) {
+      setErrorMsg("Message cannot be empty.");
+      return false;
     }
-    else {
-      
-    }
-  }
 
-  // update button text function
-  function updateBtnText(value) {
-    setBtnText(value);
-  }
+    setErrorMsg("");
+    return true;
+  };
 
-  // submit and send data on node
-  async function submition(e){
+  // Submit Handler
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    if (isValid) {
+    if (!validateForm()) return;
 
-      try {
+    setIsSubmitting(true);
+    setBtnText("SENDING...");
 
-        // button text updating 
-        updateBtnText("SENDING");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message: msg }),
+      });
 
-        // fetch the data
-        const response = await fetch("/api/contact", {
-          method: "POST",
-          headers: {"Content-type": "application/json"},
-          body: JSON.stringify({
-            name: name,
-            email: email,
-            message: msg
-          })
-        });
+      if (response.ok) {
+        setBtnText("SENT!");
+        setName("");
+        setEmail("");
+        setMsg("");
 
-        if (response.ok) {
-          updateBtnText("SENT");
+        setTimeout(() => {
+          setBtnText("SEND");
+        }, 4000);
 
-          // clear the message value
-          setName("");
-          setEmail("");
-          setMsg("");
+      } else {
 
-          setTimeout(() => {
-
-            updateBtnText("");
-
-          }, 4000);
-        } 
-
-        else {
-          alert("something went to wrong!");
-          updateBtnText("");
-        }
-
-      } catch (err) {
-        alert("network error");
-        updateBtnText("");
+        alert("Something went wrong! Please try again.");
+        setBtnText("SEND");
       }
+    
+    } catch (err) {
+
+      alert("Network error. Please check your connection.");
+      setBtnText("SEND");
+
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
