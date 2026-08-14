@@ -127,7 +127,7 @@ const ContactForm = () => {
         </div>
       </div>
 
-      <form onSubmit={submition} className="anime2 w-full h-auto flex flex-col gap-5 py-[10%] px-[8%] text-[2vw] md:text-[0.8rem]"> 
+      <form onSubmit={handleSubmit} className="anime2 w-full h-auto flex flex-col gap-5 py-[10%] px-[8%] text-[2vw] md:text-[0.8rem]"> 
         <input onChange={nameValidation} name="name" value={name} className="anime2 selection:text-[#ffffdb] text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" type="text" placeholder="NAME" />
         <input onChange={emailValidation} name="email" value={email} className="anime2 selection:text-[#ffffdb] text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" type="email" placeholder="EMAIL" />
         <textarea onChange={messageValidation} name="msg" value={msg} className="anime2 selection:text-[#ffffdb] text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]" rows="4" type="text" placeholder="MESSAGE"></textarea>
