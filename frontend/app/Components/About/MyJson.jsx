@@ -2,10 +2,11 @@ const MyJson = () => {
   return (
     <div className="w-full pb-[10%]">
       <div className="w-full bg-[#fff] border-[0.2em] border-[#121212] shadow-[0.8em_0.8em_0_0_#121212]">
-        <h2 className="w-full bg-[#121212] text-[#ffffdb] text-[2rem] py-[3%] px-[2%] font-black">My JSON</h2>
+        <h2 className="w-full selection:bg-[#ffffdb] selection:text-[#121212] bg-[#121212] text-[#ffffdb] text-[2rem] py-[3%] px-[2%] font-black">My JSON</h2>
         
-        <div className="py-[4%]">
+        <div className="selection:bg-[#ffffdb] py-[4%]">
           <span className="ml-[5%]">&#123;</span>
+
           <div className="">
             <span className="font-bold text-[#121212] ml-[10%] mr-[3%]">"student":</span>
             <span className="text-[#555]">true,</span>

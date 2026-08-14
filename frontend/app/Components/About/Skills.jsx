@@ -42,28 +42,28 @@ const Skills = () => {
       
       <div  className="fade-up bg-[#fff] shadow-[0.8em_0.8rem_0_0_#121222] border-[#121212] border-[0.4em]">
 
-        <h2 className="w-full bg-[#121212] text-[2rem] py-[3%] px-[2%] text-[#ffffdb] font-black">Languages</h2>
+        <h2 className="w-full selection:bg-[#FFFFDB] selection:text-[#121212] bg-[#121212] text-[2rem] py-[3%] px-[2%] text-[#ffffdb] font-black">Languages</h2>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-[2rem] p-[5%]">
           
           <div className="js md:text-[1rem]">
             <FontAwesomeIcon icon={faJs} className="text-[#121212] text-[3rem] md:text-[4rem]" />
-            <span className="text-[121212]">Javascript</span>
+            <span className="text-[121212] selection:text-[#ffd558] selection:bg-[#fff]">Javascript</span>
           </div>
 
           <div className="ts md:text-[1rem]">
             <FontAwesomeIcon icon={faTypescript} className="icon text-[#121212] text-[3rem] md:text-[4rem]" />
-            <span>Typescript</span>
+            <span className="text-[#121212] selection:text-[#3178C6] selection:bg-[#fff]">Typescript</span>
           </div>
 
           <div className="clang md:text-[1rem]">
             <FontAwesomeIcon icon={faC} className="icon text-[#121212] text-[3rem] md:text-[4rem]" />
-            <span>Clang</span>
+            <span className="text-[#121212] selection:text-[#282C34] selection:bg-[#fff]">Clang</span>
           </div>
 
           <div className="py md:text-[1rem]">
             <FontAwesomeIcon icon={faPython} className="icon text-[#121212] text-[3rem] md:text-[4rem]" />
-            <span>Python</span>
+            <span className="text-[#121212] selection:text-[#3776AB] selection:bg-[#fff]">Python</span>
           </div>
 
         </div>
@@ -71,33 +71,33 @@ const Skills = () => {
 
       <div className="fade-up bg-[#fff] shadow-[0.8em_0.8rem_0_0_#121222] border-[#121212] border-[0.4em]">
 
-        <h2 className="w-full bg-[#121212] text-[2rem] py-[3%] px-[2%] text-[#ffffdb] font-black">Libraries &#38; Frameworks</h2>
+        <h2 className="w-full selection:bg-[#FFFFDB] selection:text-[#121212] bg-[#121212] text-[2rem] py-[3%] px-[2%] text-[#ffffdb] font-black">Libraries &#38; Frameworks</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-[2rem] p-[5%]">
       
           <div className="react md:text-[1rem]">
             <FontAwesomeIcon icon={faReact} className="text-[#121212] text-[3rem] md:text-[4rem]" />
-            <span>React</span>
+            <span className="text-[#121212] selection:text-[#61DAFB] selection:bg-[#fff]">React</span>
           </div>
 
           <div className="node md:text-[1rem]">
             <FontAwesomeIcon icon={faNode} className="icon text-[#121212] text-[3rem] md:text-[4rem]" />
-            <span>Node</span>
+            <span className="text-[#121212] selection:text-[#5FA04E] selection:bg-[#fff]">Node</span>
           </div>
 
           <div className="gsap md:text-[1rem]">      
-            <span>GSAP</span>
+            <span className="text-[#121212] selection:text-[#88CE02] selection:bg-[#fff]">GSAP</span>
           </div>
 
           <div className="next md:text-[1rem]">
-            <span>Next</span>
+            <span className="text-[#121212] selection:text-[1c1c1c] selection:bg-[#fff]">Next</span>
           </div>
       
           <div className="ex md:text-[1rem]">
-            <span>Express</span>
+            <span className="tex-[#121212] selection:text-[#333333] selection:bg-[#fff]">Express</span>
           </div>
 
           <div className="socket md:text-[1rem]">
-            <span>Socket.io</span>
+            <span className="text-[#121212] selection:text-[#1c1c1c] selection:bg-[#fff]">Socket.io</span>
           </div>
 
         </div>
@@ -105,12 +105,12 @@ const Skills = () => {
 
       <div className="fade-up bg-[#fff] shadow-[0.8em_0.8rem_0_0_#121222] border-[#121212] border-[0.4em]">
 
-        <h2 className="w-full bg-[#121212] text-[2rem] py-[3%] px-[2%] text-[#ffffdb] font-black">Database</h2>
+        <h2 className="w-full selection:bg-[#FFFFDB] selection:text-[#121212] bg-[#121212] text-[2rem] py-[3%] px-[2%] text-[#ffffdb] font-black">Database</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-[2rem] p-[5%]">
 
           <div className="mongo md:text-[1rem]">
         
-            <span>Mongodb</span>
+            <span className="text-[#121212] selection:text-[#13AA52] selection:bg-[#fff]">Mongodb</span>
           </div>
 
         </div>

@@ -25,9 +25,9 @@ const AboutText = () => {
     <div ref={containerRef} className="text-[4vw] md:text-[2rem] mb-[5%] w-full h-full flex justify-center items-center">
       <div className="hoverCards w-[85%] h-auto bg-white border-[0.3em] border-[#121212] p-[5%] shadow-[0.6em_0.6em_0_0_#121212]">
 
-        <h2 className="gsap-texts uppercase font-extrabold text-[4vw] md:text-[2.5rem]">Who is <br/> sadat?</h2>
+        <h2 className="gsap-texts uppercase font-extrabold text-[4vw] md:text-[2.5rem] selection:text-[#121212] selection:bg-[#FFFFDB]">Who is <br/> sadat?</h2>
 
-        <p className="gsap-texts text-[#121212] text-[2.5vw] md:text-[1.5rem]">A full-stack <span className="bg-[#FFFFDB] font-semibold">web developer</span>, dedicated to writing code every single day. A student who is constantly learning about technology and <span className="bg-[#FFFFDB] font-semibold">programming. </span>Who is trying to create something new that will help people.</p>
+        <p className="gsap-texts text-[#121212] text-[2.5vw] md:text-[1.5rem] selection:text-[#121212] selection:bg-[#FFFFDB]">A full-stack <span className="bg-[#FFFFDB] font-semibold selection:bg-zinc-900 selection:text-[#FFFFDB]">web developer</span>, dedicated to writing code every single day. A student who is constantly learning about technology and <span className="bg-[#FFFFDB] font-semibold selection:bg-zinc-900 selection:text-[#FFFFDB]">programming. </span>Who is trying to create something new that will help people.</p>
       </div>
     </div>
   );
