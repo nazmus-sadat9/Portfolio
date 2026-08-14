@@ -8,7 +8,7 @@ const projectRouter = require("./routes/projectRoutes");
 const app = express();
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL || "*"
+  origin: process.env.FRONTEND_URL
 }));
 
 app.use(express.json());
@@ -20,7 +20,6 @@ app.use('/api/contact', contactRouter);
 
 // projects 
 app.use("/api/projects", projectRouter);
-
 
 const PORT = process.env.PORT || 5000;
 
