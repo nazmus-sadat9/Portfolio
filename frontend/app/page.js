@@ -59,7 +59,7 @@ const page = () => {
 
       </div>
 
-      <p className="text-[#121212] text-xl ml-[5%] selection:bg-[#121212] selection:text-[#ffffdb]">v{__APP_VERSION}</p>
+      <p className="text-[#121212] text-xl ml-[5%] selection:bg-[#121212] selection:text-[#ffffdb]">v0.1.0</p>
     </div>
     );
 };
