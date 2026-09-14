@@ -1,186 +1,110 @@
-"use client";
-import React, { useRef, useState } from "react";
-/*
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram, faGithub, faFacebook } from "@fortawesome/free-brands-svg-icons";
-*/
+'use client';
 
-const page = () => {
+import { useState } from 'react';
 
-// Form State
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [msg, setMsg] = useState("");
+export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
 
-  // UI State
-  const [btnText, setBtnText] = useState("SEND");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
+  const [status, setStatus] = useState({
+    loading: false,
+    success: null,
+    error: null,
+  });
 
-  const container = useRef(null);
-
-  // Validate the form
-  const validateForm = () => {
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (name.trim().length < 3) {
-      setErrorMsg("Name must be at least 3 characters.");
-      return false;
-    }
-    if (!emailRegex.test(email)) {
-      setErrorMsg("Please enter a valid email address.");
-      return false;
-    }
-    if (!msg.trim()) {
-      setErrorMsg("Message cannot be empty.");
-      return false;
-    }
-
-    setErrorMsg("");
-    return true;
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  // Submit Handler
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!validateForm()) return;
-
-    setIsSubmitting(true);
-    setBtnText("SENDING...");
+    setStatus({ loading: true, success: null, error: null });
 
     try {
-      const apiUrl = "/api/contact";
-
-      console.log(apiUrl);
-
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message: msg }),
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
-        setBtnText("SENT!");
-        setName("");
-        setEmail("");
-        setMsg("");
+      const data = await response.json();
 
-        setTimeout(() => {
-          setBtnText("SEND");
-        }, 4000);
-
-      } else {
-        const errorData = await response.json();
-        console.error("API Error:", errorData);
-        alert("Something went wrong! Please try again.");
-        setBtnText("SEND");
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
       }
 
+      setStatus({
+        loading: false,
+        success: 'Thank you! Your message has been sent.',
+        error: null,
+      });
+
+      setFormData({ name: '', email: '', message: '' });
     } catch (err) {
-      console.error(err);
-      console.log(err.message);
-      alert("Network error. Please check your connection.");
-      setBtnText("SEND");
-
-    } finally {
-      setIsSubmitting(false);
+      setStatus({
+        loading: false,
+        success: null,
+        error: err.message || 'An error occurred.',
+      });
     }
-  }
+  };
 
-  // animations
-  /*
-  useGSAP(() => {
-
-    const tl = gsap.timeline();
-    tl.from(".anime1", {
-      y: 40,
-      duration: 0.5,
-      stagger: 0.1,
-      opacity: 0,
-      ease: "back.out(2)"
-    });
-
-    tl.from(".anime2", {
-      y: 40,
-      duration: 0.3,
-      stagger: 0.1,
-      opacity: 0,
-      ease: "back.out(2)"
-    });
-
-    tl.from(".animeBtn", {
-      y: 20,
-      opacity: 1,
-      duration: 0.3,
-      ease: "back.out(2)"
-    });
-
-  }, { scope: container, dependencies: [] });
-
-  */
   return (
-    <div className="w-screen h-screen flex-col flex justify-center items-center">
+    <div>
+      <h1>Contact Us</h1>
 
-
-    <div ref={container} className="w-[75%] md:w-[55%] h-auto bg-[#121212] grid sm:grid-cols-1 md:grid-cols-2 border-[#121212] border-[0.3em] shadow-[0.8em_0.8em_0_0_#121212] text-[4vw] md:text-[2rem]">
-      <div className="w-full h-auto bg-[#fff] p-[10%]">
-        <h2 className="anime1 selection:bg-[#ffffdb] text-[#121212] font-extrabold uppercase text-[6.5vw] md:text-[2.5rem]">Let's <br/>talk</h2>
-        <p className="anime1 text-[#555] selection:bg-[#ffffdb] text-[3vw] md:text-[1.3rem] mb-[5%]">You can share your opinion about this website.</p>
-          <div className="anime1 text-[5vw] flex justify-around gap-2">
-            {/*
-            <a href="https://github.com/nazmus-sadat9" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faGithub} className="text-[#121212] font-semibold md:text-[2rem]" />
-            </a>
-
-            <a href="https://www.facebook.com/share/1JcHannGA4/" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faFacebook} className="text-[#121212] font-semibold md:text-[2rem]" />
-            </a>
-
-            <a href="https://www.instagram.com/lord.sadat?igsh=MTBnaW50bjRiaWl6dQ==">
-              <FontAwesomeIcon icon={faInstagram} className="text-[#121212] font-semibold md:text-[2rem]" />
-            </a>
-            */}
-        </div>
-      </div>
-
-      <form onSubmit={handleSubmit} className="anime2 w-full h-auto flex flex-col gap-5 py-[10%] px-[8%] text-[2vw] md:text-[0.8rem]">
-        <input
-            onChange={(e) => setName(e.target.value)}
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
             name="name"
-            value={name}
-            className="anime2 selection:text-[#ffffdb] text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]"
-            type="text"
-            placeholder="NAME" />
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <input
-            onChange={(e) => setEmail(e.target.value)}
-            name="email"
-            value={email}
-            className="anime2 selection:text-[#ffffdb] text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]"
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
             type="email"
-            placeholder="EMAIL" />
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <textarea
-            onChange={(e) => setMsg(e.target.value)}
-            name="msg"
-            value={msg}
-            className="anime2 selection:text-[#ffffdb] text-[#fff] p-[3%] outline-none border-[#444] border-[0.2em]"
-            rows="4"
-            type="text"
-            placeholder="MESSAGE"></textarea>
+        <div>
+          <label htmlFor="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            value={formData.message}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <button className="animeBtn opacity-0 text-[#121212] p-[3%] uppercase bg-[#ffffdb] font-bold selection:bg-[#121212] selection:text-[#ffffdb]" type="submit">{btnText || "SEND"}</button>
-
+        <button type="submit" disabled={status.loading}>
+          {status.loading ? 'Sending...' : 'Send Message'}
+        </button>
       </form>
-    </div>
 
-
+      {status.success && <p>{status.success}</p>}
+      {status.error && <p>{status.error}</p>}
     </div>
   );
 }
-
-export default page;
