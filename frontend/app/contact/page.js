@@ -1,4 +1,3 @@
-// app/contact/page.js
 'use client';
 
 import { useState } from 'react';
@@ -19,7 +18,7 @@ export default function ContactPage() {
     setError('');
 
     try {
-      const response = await fetch('https://portfolio-backend-ku0u.onrender.com/api/contact', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
