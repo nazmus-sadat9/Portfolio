@@ -1,9 +1,11 @@
 "use client";
+import React, { useRef, useState } from "react";
+/*
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React, { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faGithub, faFacebook } from "@fortawesome/free-brands-svg-icons";
+*/
 
 const page = () => {
 
@@ -90,6 +92,7 @@ const page = () => {
   }
 
   // animations
+  /*
   useGSAP(() => {
 
     const tl = gsap.timeline();
@@ -118,6 +121,7 @@ const page = () => {
 
   }, { scope: container, dependencies: [] });
 
+  */
   return (
     <div className="w-screen h-screen flex-col flex justify-center items-center">
 
@@ -127,7 +131,7 @@ const page = () => {
         <h2 className="anime1 selection:bg-[#ffffdb] text-[#121212] font-extrabold uppercase text-[6.5vw] md:text-[2.5rem]">Let's <br/>talk</h2>
         <p className="anime1 text-[#555] selection:bg-[#ffffdb] text-[3vw] md:text-[1.3rem] mb-[5%]">You can share your opinion about this website.</p>
           <div className="anime1 text-[5vw] flex justify-around gap-2">
-
+            {/*
             <a href="https://github.com/nazmus-sadat9" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faGithub} className="text-[#121212] font-semibold md:text-[2rem]" />
             </a>
@@ -139,7 +143,7 @@ const page = () => {
             <a href="https://www.instagram.com/lord.sadat?igsh=MTBnaW50bjRiaWl6dQ==">
               <FontAwesomeIcon icon={faInstagram} className="text-[#121212] font-semibold md:text-[2rem]" />
             </a>
-
+            */}
         </div>
       </div>
 
