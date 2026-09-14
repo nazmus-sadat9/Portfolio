@@ -1,38 +1,30 @@
+// app/contact/page.js
 'use client';
 
 import { useState } from 'react';
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
-  const [status, setStatus] = useState({
-    loading: false,
-    success: null,
-    error: null,
-  });
-
-  const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus({ loading: true, success: null, error: null });
+    setLoading(true);
+    setSuccess('');
+    setError('');
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://portfolio-backend-ku0u.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ name, email, message }),
       });
 
       const data = await response.json();
@@ -41,19 +33,14 @@ export default function ContactPage() {
         throw new Error(data.error || 'Failed to send message');
       }
 
-      setStatus({
-        loading: false,
-        success: 'Thank you! Your message has been sent.',
-        error: null,
-      });
-
-      setFormData({ name: '', email: '', message: '' });
+      setSuccess('Thank you! Your message has been sent.');
+      setName('');
+      setEmail('');
+      setMessage('');
     } catch (err) {
-      setStatus({
-        loading: false,
-        success: null,
-        error: err.message || 'An error occurred.',
-      });
+      setError(err.message || 'An error occurred.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -67,9 +54,8 @@ export default function ContactPage() {
           <input
             type="text"
             id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
@@ -79,9 +65,8 @@ export default function ContactPage() {
           <input
             type="email"
             id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
@@ -90,21 +75,20 @@ export default function ContactPage() {
           <label htmlFor="message">Message</label>
           <textarea
             id="message"
-            name="message"
             rows="5"
-            value={formData.message}
-            onChange={handleChange}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             required
           />
         </div>
 
-        <button type="submit" disabled={status.loading}>
-          {status.loading ? 'Sending...' : 'Send Message'}
+        <button type="submit" disabled={loading}>
+          {loading ? 'Sending...' : 'Send Message'}
         </button>
       </form>
 
-      {status.success && <p>{status.success}</p>}
-      {status.error && <p>{status.error}</p>}
+      {success && <p>{success}</p>}
+      {error && <p>{error}</p>}
     </div>
   );
 }
