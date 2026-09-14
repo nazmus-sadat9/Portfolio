@@ -9,21 +9,20 @@ export async function POST(req) {
       return NextResponse.json({ error: "Name is required" }, { status: 400 });
     }
 
-    // Configure Nodemailer Transporter
     const transporter = nodemailer.createTransport({
-      service: "gmail", // Or use host/port for custom SMTP
+      service: "gmail", 
       auth: {
-        user: "mugdho702@gmail.com",
-        pass: "uxjtanzfabchkgvt", // App password for Gmail
+        user: process.env.AUTHOR_GMAIL,
+        pass: process.env.AUTHOR_PASS, 
       },
     });
 
-    // Send email with just the name as body content
+    
     await transporter.sendMail({
-      from: "mugdho702@gmail.com",
-      to: "prosadat505@gmail.com", // Sending to yourself
+      from: process.env.AUTHOR_GMAIL,
+      to: email, 
       subject: "New Name Submission",
-      text: `${name}\n${email}\n${message}`, // Just the name, nothing more
+      text: `${name}\n${email}\n${message}`,
     });
 
   } catch (err) {
