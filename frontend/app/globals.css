@@ -1,1 +1,225 @@
 @import "tailwindcss";
+
+/* Hide scrollbar */
+html, body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none;
+}
+
+
+body {
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
+:root{
+  --black: #121212;
+  --soft-yellow: #ffffdb;
+  --white: #ffffff;
+}
+
+/* loading section */
+.main{
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--soft-yellow);
+  overflow: hidden;
+}
+
+
+.primaryLoader{
+  background-color: var(--black);
+  width: 165px;
+  height: 250px;
+  clip-path: polygon(45% 0, 72.9% 0, 79% 10%, 60% 35.2%, 91% 35.3%, 100% 45%, 60% 97%, 30% 97%, 22.8% 88%, 43% 62%, 10% 62%, 5% 52.8% );
+}
+
+.loader{
+  width: 150px;
+  height: 220px;
+  background-color: var(--white);
+  clip-path: polygon(49.5% 0, 80% 0, 50% 40%, 100% 40%, 55% 100%, 25% 100%, 55% 60%, 0 60% );
+  position: relative;
+  overflow: hidden;
+  &::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    background-color: #F44937;
+    animation: fillup 3s ease infinite;
+  }
+
+}
+
+
+@keyframes fillup{
+  0%{height: 0}
+  100%{height: 100%}
+}
+
+/* not-found */
+#errorStatus{
+  -webkit-text-stroke: 2.5px var(--black);
+  text-stroke: 2.5px var(--black);
+}
+
+
+/* Hover Effects */
+
+.hoverCards{
+  transition: 0.3s ease;
+  cursor: pointer;
+  &:hover{
+    transform: translateY(0.5em) translateX(0.5em);
+    box-shadow: 0 0 0 0 var(--black);
+  }
+}
+
+.jsBox:hover .jsText{
+  opacity: 1;
+  width: 20%;
+}
+
+.animeBtn{
+  transition: 0.3s ease;
+  &:hover{
+    letter-spacing: 3px;
+  }
+}
+
+/* Navbar style */
+.navbar-links{
+  position: relative;
+  color: #555;
+  transition: all 0.25s ease-out;
+
+  &::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 100%;
+    transform-origin: center;
+    transform: scaleX(0);
+    background-color: var(--black);
+    transition: transform 0.25s ease-out;
+  }
+
+  &:hover{
+    color: var(--black);
+  }
+}
+
+.navbar-links:hover::after{
+  transform: scaleX(1);
+}
+
+/* Skill cards */
+.js,
+.ts,
+.clang,
+.py,
+.react,
+.node,
+.gsap,
+.next,
+.ex,
+.socket,
+.mongo{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-color: var(--white);
+  color: var(--black);
+  transition: all 0.3s ease;
+  border: 0.2em solid #121212;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 0.8rem;
+  box-shadow: 0.8em 0.8em 0 #121212;
+}
+
+.fontSize {
+  font-size: clamp(3rem, 4vw, 4rem);
+}
+
+.js:hover{
+  background-color: #ffd558;
+}
+
+.ts:hover{
+  background-color: #3178C6;
+  color: #ffffff;
+}
+
+.ts:hover .icon{
+  color: #ffffff;
+}
+
+.clang:hover{
+  background-color: #282C34;
+  color: #ffffff;
+}
+
+.clang:hover .icon{
+  color: #ffffff;
+}
+
+.py:hover{
+  background-color: #3776AB;
+  color: #ffffff;
+}
+
+.py:hover .icon{
+  color: #ffffff;
+}
+
+.react:hover{
+  background-color: #61DAFB;
+}
+
+.node:hover{
+  background-color: #5FA04E;
+  color: #ffffff;
+}
+
+.node:hover .icon{
+  color: #ffffff;
+}
+
+.gsap:hover{
+  background-color: #88CE02;
+}
+
+.next:hover{
+  background-color: #1C1C1C;
+  color: #ffffff;
+}
+
+.ex:hover{
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.socket:hover{
+  background-color: #1C1C1C;
+  color: #ffffff;
+}
+
+.mongo:hover{
+  background-color: #13AA52;
+  color: #ffffff;
+}

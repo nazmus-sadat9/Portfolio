@@ -1,14 +1,11 @@
 "use client";
 import React, { useRef } from "react";
-/*
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-*/
 
 const page = () => {
     const container = useRef(null);
 
-  /*
   useGSAP(() => {
    const tl = gsap.timeline();
 
@@ -28,15 +25,14 @@ const page = () => {
 
   }, { scope: container });
 
-  */
 
   return (
-    <div className="w-full h-full flex flex-col justify-evenly items-center">
+    <div className="w-screen h-screen flex flex-col justify-evenly items-center bg-[#ffffdb]">
       <div ref={container} className="w-full h-auto md:w-[60%] grid md:grid-cols-3 gap-[10%] z-10 p-[10%]">
         <div className="left-box w-full md:col-span-3">
           <div className="hoverCards selection:bg-[#ffffdb] selection:text-[#121212] w-full text-[4vw] md:text-[2rem] p-[10%] bg-[#ffffff] border-[0.2em] border-[#121212] shadow-[0.4em_0.4em_0_0_#121212] flex flex-col justify-center">
             <h2 className="mb-[2%] uppercase font-black text-[6vw] md:text-[3rem] text-[#121212]">sadat //</h2>
-            <p className="text-[3vw] md:text-[1.8rem] text-[#121212]">I am a web developer.</p>
+            <p className="text-[3vw] md:text-[1.8rem] text-[#121212]">I am a full stack web developer.</p>
           </div>
         </div>
 
@@ -59,7 +55,7 @@ const page = () => {
 
       </div>
 
-      <p className="text-[#121212] text-xl ml-[5%] selection:bg-[#121212] selection:text-[#ffffdb]">v0.1.0</p>
+      <p className="text-[#121212] text-xl ml-[5%] selection:bg-[#121212] selection:text-[#ffffdb]">v0.5.29</p>
     </div>
     );
 };
