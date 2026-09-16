@@ -73,7 +73,17 @@ body {
 }
 
 /* Home terminal */
+.terminalBody::-webkit-scrollbar{
+  width: 1.7rem;
+}
 
+.terminalBody::-webkit-scrollbar-thumb{
+  background: #121212;
+}
+
+.terminalBody::-webkit-scrollbar-track{
+  background: #ffffdb;
+}
 
 /* Hover Effects */
 

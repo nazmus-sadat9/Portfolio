@@ -2,8 +2,9 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useRouter } from "next/navigation";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTerminal } from '@fortawesome/free-solid-svg-icons';
+import { faTerminal, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const page = () => {
 
@@ -15,6 +16,9 @@ const page = () => {
   const terminalRef = useRef(null);
   const inputRef = useRef(null)
 
+  const router = useRouter();
+
+  // animations
   useGSAP(() => {
     const tl = gsap.timeline();
 
@@ -52,7 +56,7 @@ const page = () => {
     }
   }, { dependencies: [isOpen], scope: container });
 
-  // focus to the input 
+  // focus to the input
   useEffect(() => {
     if (isOpen) {
       inputRef.current?.focus();
@@ -63,6 +67,7 @@ const page = () => {
   }, [isOpen]);
 
 
+  // toggle to false 
   function toggleTerminal() {
     setIsOpen((open) => !open);
   }
@@ -77,9 +82,13 @@ const page = () => {
     const cmd = command.trim().toLowerCase();
     if (!cmd) return;
 
+    // store the outputs
+    let result = "";
+
+    // cases of cmd
     switch (cmd) {
       case "whoami":
-        setOutput("SADAT, a full stack web developer.");
+        result = "SADAT, a full stack web developer.";
         break;
 
       case "clear":
@@ -88,36 +97,53 @@ const page = () => {
 
       case "--help":
       case "-h":
-      case "help":
-        setOutput(
-          "Available commands:\n" +
-          "  whoami       about me\n" +
-          "  github       my GitHub\n" +
-          "  clear        clear the terminal\n" +
-          "  --version    show version\n" +
-          "  exit         close terminal"
-        );
+        result = "whoami => about me\ngithub => my GitHub\nclear => clear the terminal\n--version => show version\n/<page name> => navigate to another page\nexit => close terminal";
         break;
 
       case "--version":
       case "-v":
-        setOutput("version: 0.5.29");
+        result = "version: 0.5.29";
         break;
 
       case "github":
-        setOutput("github.com/nazmus-sadat9");
+        result = "github.com/nazmus-sadat9";
         break;
 
+      case "/":
+        router.push("/");
+        break
+      
+      case "/about":
+        router.push("/about");
+        closeTerminal(); 
+        break;
+
+      case "/projects":
+        router.push("/projects");
+        closeTerminal();
+        break;
+
+      case "/blogs":
+        router.push("/blogs");
+        closeTerminal();
+        break;
+
+      case "/contact":
+        router.push("/contact");
+        closeTerminal();
+        break;     
+      
       case "exit":
         setOutput("");
         closeTerminal();
         break;
 
       default:
-        setOutput(`Command not found: ${cmd}. Type --help`);
+        result = `Command not found: ${cmd}. Type --help`;
         break;
     }
 
+    setOutput((currentResult) => currentResult + `\n$ ${cmd}\n${result}\n`);
     setCommand("");
   }
 
@@ -150,7 +176,7 @@ const page = () => {
       </div>
 
       {isOpen && (
-        <div className="w-screen h-screen absolute top-0 left-0 z-90 flex justify-center items-center">
+        <div className="w-screen h-screen absolute overflow-hidden top-0 left-0 z-90 flex justify-center items-center">
         <div ref={terminalRef} className="w-full bg-[#fff] flex justify-evenly flex-col items-center max-w-[720px] min-w-[280px] border-[0.2em] border-[#121212] shadow-[0.8em_0.8em_0_0_#121212]">
 
           {/* terminal header */}
@@ -163,12 +189,14 @@ const page = () => {
             <h2 className="font-bold text-[#ffffdb] text-[1.5rem]">sadat@portfolio: ~</h2>
 
             <div className="text-[#121212] text-[1.5rem] bg-[#ffffdb] w-[10%] aspect-[1/1] flex justify-center items-center">
-              <button type="button" onClick={closeTerminal} className="w-full">×</button>
+              <button type="button" onClick={closeTerminal} className="w-full">
+                <FontAwesomeIcon icon={faXmark} />
+              </button>
             </div>
           </div>
 
           {/* terminal body */}
-          <div className="terminalBody whitespace-pre-line p-[3%] w-full min-h-[32px] overflow-y-scroll bg-[#ffffdb]">
+          <div className="terminalBody whitespace-pre-line p-[3%] w-full max-h-[20vw] overflow-y-scroll bg-[#ffffdb]">
             {output}
           </div>
 
@@ -181,6 +209,7 @@ const page = () => {
                 ref={inputRef}
                 type="text"
                 placeholder="Type --help"
+                autoCapitalize="off"
                 value={command}
                 onChange={(e) => setCommand(e.target.value)}
                 className="p-[2%] w-full border-none outline-none text-[#121212]"
@@ -194,7 +223,7 @@ const page = () => {
         </div>
       )}
 
-      <p className="text-[#121212] text-xl ml-[5%] selection:bg-[#121212] selection:text-[#ffffdb]">v0.5.29</p>
+      <p className="text-[#121212] text-xl ml-[5%] selection:bg-[#121212] selection:text-[#ffffdb]">v0.6.0</p>
     </div>
   );
 };
