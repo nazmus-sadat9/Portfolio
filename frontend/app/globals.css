@@ -72,6 +72,8 @@ body {
   text-stroke: 2.5px var(--black);
 }
 
+/* Home terminal */
+
 
 /* Hover Effects */
 
@@ -82,11 +84,6 @@ body {
     transform: translateY(0.5em) translateX(0.5em);
     box-shadow: 0 0 0 0 var(--black);
   }
-}
-
-.jsBox:hover .jsText{
-  opacity: 1;
-  width: 20%;
 }
 
 .animeBtn{

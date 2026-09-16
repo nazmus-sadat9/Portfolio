@@ -1,13 +1,22 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTerminal } from '@fortawesome/free-solid-svg-icons';
 
 const page = () => {
-    const container = useRef(null);
+
+  const [command, setCommand] = useState("");
+  const [output, setOutput] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+
+  const container = useRef(null);
+  const terminalRef = useRef(null);
+  const inputRef = useRef(null)
 
   useGSAP(() => {
-   const tl = gsap.timeline();
+    const tl = gsap.timeline();
 
     tl.from(".left-box", {
       xPercent: -25,
@@ -16,15 +25,101 @@ const page = () => {
       ease: "back.out(2)"
     })
     .from(".bottom-box", {
-        yPercent: 30,
-        opacity: 0,
-        duration: 0.4,
-        stagger: 0.2,
-        ease: "back.out(2)"
-      }, "-=0.3");
+      yPercent: 30,
+      opacity: 0,
+      duration: 0.4,
+      stagger: 0.2,
+      ease: "back.out(2)"
+    }, "-=0.3");
 
   }, { scope: container });
 
+  useGSAP(() => {
+    if (isOpen && terminalRef.current) {
+
+      gsap.fromTo(terminalRef.current, {
+        scale: 0.9, 
+        opacity: 0, y: 16
+      },
+        {
+          scale: 1,
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+          ease: "back.out(2)" 
+        }
+      );
+    }
+  }, { dependencies: [isOpen], scope: container });
+
+  // focus to the input 
+  useEffect(() => {
+    if (isOpen) {
+      inputRef.current?.focus();
+      if (!output) {
+        setOutput("Type --help or -h for details.");
+      }
+    }
+  }, [isOpen]);
+
+
+  function toggleTerminal() {
+    setIsOpen((open) => !open);
+  }
+
+  function closeTerminal() {
+    setIsOpen(false);
+  }
+
+  function useCommand(e) {
+    e.preventDefault();
+
+    const cmd = command.trim().toLowerCase();
+    if (!cmd) return;
+
+    switch (cmd) {
+      case "whoami":
+        setOutput("SADAT, a full stack web developer.");
+        break;
+
+      case "clear":
+        setOutput("");
+        break;
+
+      case "--help":
+      case "-h":
+      case "help":
+        setOutput(
+          "Available commands:\n" +
+          "  whoami       about me\n" +
+          "  github       my GitHub\n" +
+          "  clear        clear the terminal\n" +
+          "  --version    show version\n" +
+          "  exit         close terminal"
+        );
+        break;
+
+      case "--version":
+      case "-v":
+        setOutput("version: 0.5.29");
+        break;
+
+      case "github":
+        setOutput("github.com/nazmus-sadat9");
+        break;
+
+      case "exit":
+        setOutput("");
+        closeTerminal();
+        break;
+
+      default:
+        setOutput(`Command not found: ${cmd}. Type --help`);
+        break;
+    }
+
+    setCommand("");
+  }
 
   return (
     <div className="w-screen h-screen flex flex-col justify-evenly items-center bg-[#ffffdb]">
@@ -44,20 +139,64 @@ const page = () => {
         </div>
 
         <div className="bottom-box w-full col-span-1">
-          <div className="hoverCards selection:bg-[#ffffdb] selection:text-[#121212] jsBox py-[5%] w-full h-full text-[4vw] md:text-[2rem] shadow-[0.4em_0.4em_0_0_#121212] border-[0.2em] border-[#121212] flex justify-center items-center bg-[#ffffff] text-[#121212]">
-            [
-              <div className="jsText duration-500 ease opacity-0 overflow-hidden w-0 flex justify-center items-center text-sm">
-                JS
-              </div>
-            ]
+          <div
+            onClick={toggleTerminal}
+            className="hoverCards selection:bg-[#ffffdb] selection:text-[#121212] jsBox py-[5%] w-full h-full text-[4vw] md:text-[2rem] shadow-[0.4em_0.4em_0_0_#121212] border-[0.2em] border-[#121212] flex justify-center items-center bg-[#ffffff] text-[#121212] cursor-pointer active:translate-x-[0.2em] active:translate-y-[0.2em] active:shadow-none transition-transform"
+          >
+            <FontAwesomeIcon icon={faTerminal} className="font-bold text-[2.5rem] text-[#121212]" />
           </div>
         </div>
 
       </div>
 
+      {isOpen && (
+        <div className="w-screen h-screen absolute top-0 left-0 z-90 flex justify-center items-center">
+        <div ref={terminalRef} className="w-full bg-[#fff] flex justify-evenly flex-col items-center max-w-[720px] min-w-[280px] border-[0.2em] border-[#121212] shadow-[0.8em_0.8em_0_0_#121212]">
+
+          {/* terminal header */}
+          <div className="w-full py-[3%] flex justify-around bg-[#121212] items-center">
+            <div className="w-[20%] flex justify-evenly items-center">
+              <div className="w-[20%] aspect-[1/1] bg-[#ffffdb]"></div>
+              <div className="w-[20%] aspect-[1/1] bg-[#ffffdb]"></div>
+              <div className="w-[20%] aspect-[1/1] bg-[#ffffdb]"></div>
+            </div>
+            <h2 className="font-bold text-[#ffffdb] text-[1.5rem]">sadat@portfolio: ~</h2>
+
+            <div className="text-[#121212] text-[1.5rem] bg-[#ffffdb] w-[10%] aspect-[1/1] flex justify-center items-center">
+              <button type="button" onClick={closeTerminal} className="w-full">×</button>
+            </div>
+          </div>
+
+          {/* terminal body */}
+          <div className="terminalBody whitespace-pre-line p-[3%] w-full min-h-[32px] overflow-y-scroll bg-[#ffffdb]">
+            {output}
+          </div>
+
+          <div className="w-full">
+            <form onSubmit={useCommand} className="w-full flex items-center px-[4%] border-[0.2em] border-[#121212]">
+
+              <span className="font-black text-[1.2rem]">$</span>
+
+              <input
+                ref={inputRef}
+                type="text"
+                placeholder="Type --help"
+                value={command}
+                onChange={(e) => setCommand(e.target.value)}
+                className="p-[2%] w-full border-none outline-none text-[#121212]"
+              />
+
+            </form>
+          </div>
+
+        </div>
+
+        </div>
+      )}
+
       <p className="text-[#121212] text-xl ml-[5%] selection:bg-[#121212] selection:text-[#ffffdb]">v0.5.29</p>
     </div>
-    );
+  );
 };
 
 export default page;
