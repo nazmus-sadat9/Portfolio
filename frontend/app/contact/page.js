@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
@@ -46,22 +45,42 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="w-screen h-screen bg-[#ffffdb] flex flex-col justify-evenly items-center">
+    <div className="w-screen h-screen bg-[#ffffdb] flex justify-evenly items-center">
 
-      <div className="w-[70%] bg-[#121212] flex-col border-[0.2em] border-[#121212] flex justify-center items-center shadow-[0.6em_0.6em_0_0_#121212]">
+      <div className="w-[70%] md:w-[60%] flex flex-col md:flex-row bg-[#121212] border-[0.2em] border-[#121212] shadow-[0.8em_0.8em_0_0_#121212]">
 
         <div className="bg-[#ffffff] w-full p-[5%] flex-col flex justify-evenly">
-          <h3 className="uppercase font-bold text-[1.3rem]">let's <br /> talk</h3>
+          <h3 className="uppercase font-bold text-[clamp(1rem,4vw,2.5rem)]">let's <br /> talk</h3>
 
-          <p className="text-[0.8rem]">You can share anything there.</p>
+          <p className="text-[clamp(0.8rem,4ve,1.2rem)]">You can share anything you want.</p>
 
           <div>
-            <a className="text-[1.2rem] text-[#121212]" href="" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a 
+              className="text-[clamp(1.2rem,4vw,2rem)] text-[#121212]" 
+              href="https://github.com/nazmus-sadat9" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="GitHub">
               <FontAwesomeIcon icon={faGithub} />
             </a>
 
-            <a className="text-[1.2rem] text-[#121212]" href="" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <FontAwesomeIcon icon={faFacebook} /></a>
+            <a 
+              className="text-[clamp(1.2rem,4vw,2rem)] text-[#121212]" 
+              href="" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="Facebook">
+            <FontAwesomeIcon icon={faFacebook} />
+            </a>
+
+            <a 
+              className="text-[clamp(1.2rem,4vw,2rem)] text-[#121212]" 
+              href=""
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="Instagram">
+              <FontAwesomeIcon icon={faInstagram}/>
+            </a>
           </div>
         </div>
 
@@ -72,9 +91,8 @@ export default function ContactPage() {
               name="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              required
               placeholder="NAME"
-              className="p-[2%] outline-none border-[0.1em] border-[#666]"
+              className="w-full p-[2%] outline-none border-[0.1em] border-[#666]"
             />
           </div>
 
@@ -84,9 +102,8 @@ export default function ContactPage() {
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
               placeholder="EMAIL"
-              className="p-[2%] outline-none border-[0.1em] border-[#666]"
+              className="w-full p-[2%] outline-none border-[0.1em] border-[#666]"
             />
           </div>
 
@@ -96,22 +113,18 @@ export default function ContactPage() {
               name="message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              required
               placeholder="MESSAGE"
-              className="p-[2%] outline-none border-[0.1em] border-[#666]"
+              className="w-full p-[2%] outline-none border-[0.1em] border-[#666]"
             />
           </div>
 
-          <div className="w-full flex justify-center items-center p-[3%]">
-        <button type="submit" disabled={loading} className="w-full p-[2%] bg-[#ffffff] text-[#121212] border-[0.1em] border-[#121212]">
-          {loading ? 'SENDING...' : 'SEND'}
-        </button>
+          <div className="w-full flex justify-center items-center py-[3%]">
+            <button type="submit" disabled={loading} className="w-full p-[2%] bg-[#ffffdb] text-[#121212] border-[0.1em] border-[#121212]">
+              {loading ? 'SENDING...' : 'SEND'}
+            </button>
         </div>
       </form>
       </div>
-
-      {success && <p>{success}</p>}
-      {error && <p>{error}</p>}
     </div>
   );
 }

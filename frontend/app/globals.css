@@ -74,7 +74,7 @@ body {
 
 /* Home terminal */
 .terminalBody::-webkit-scrollbar{
-  width: 1.7rem;
+  width: clamp(0.7rem, 4vw, 1.7rem);
 }
 
 .terminalBody::-webkit-scrollbar-thumb{
@@ -83,6 +83,10 @@ body {
 
 .terminalBody::-webkit-scrollbar-track{
   background: #ffffdb;
+}
+
+.mainTerminal {
+  font-family: var(--font-jetbrains-mono), monospace;
 }
 
 /* Hover Effects */

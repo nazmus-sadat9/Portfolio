@@ -5,12 +5,16 @@ import gsap from "gsap";
 import { useRouter } from "next/navigation";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTerminal, faXmark } from '@fortawesome/free-solid-svg-icons';
+import json from "../package.json";
+import Toast from "./components/Toast";
 
 const page = () => {
 
   const [command, setCommand] = useState("");
   const [output, setOutput] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+
+  const [showToast, setShowToast] = useState(false);
 
   const container = useRef(null);
   const terminalRef = useRef(null);
@@ -102,11 +106,11 @@ const page = () => {
 
       case "--version":
       case "-v":
-        result = "version: 0.5.29";
+        result = `version: ${json.version}`;
         break;
 
       case "github":
-        result = "github.com/nazmus-sadat9";
+        window.open("https://github.com/nazmus-sadat9", "_blank", "noopener,noreferrer");
         break;
 
       case "/":
@@ -134,8 +138,8 @@ const page = () => {
         break;     
       
       case "exit":
-        setOutput("");
         closeTerminal();
+        setOutput("");
         break;
 
       default:
@@ -149,6 +153,17 @@ const page = () => {
 
   return (
     <div className="w-screen h-screen flex flex-col justify-evenly items-center bg-[#ffffdb]">
+
+      {/* Toast */}
+      {/*
+      <Toast
+        title="test"
+        description="the toast is working"
+        isOpen={true}
+        onClose={() => setShowToast(false)}   
+      />
+    */}
+
       <div ref={container} className="w-full h-auto md:w-[60%] grid md:grid-cols-3 gap-[10%] z-10 p-[10%]">
         <div className="left-box w-full md:col-span-3">
           <div className="hoverCards selection:bg-[#ffffdb] selection:text-[#121212] w-full text-[4vw] md:text-[2rem] p-[10%] bg-[#ffffff] border-[0.2em] border-[#121212] shadow-[0.4em_0.4em_0_0_#121212] flex flex-col justify-center">
@@ -176,8 +191,8 @@ const page = () => {
       </div>
 
       {isOpen && (
-        <div className="w-screen h-screen absolute overflow-hidden top-0 left-0 z-90 flex justify-center items-center">
-        <div ref={terminalRef} className="w-full bg-[#fff] flex justify-evenly flex-col items-center max-w-[720px] min-w-[280px] border-[0.2em] border-[#121212] shadow-[0.8em_0.8em_0_0_#121212]">
+        <div className="mainTerminal w-screen h-screen absolute overflow-hidden top-0 left-0 z-90 flex justify-center items-center">
+        <div ref={terminalRef} className="w-[80%] bg-[#fff] flex justify-evenly flex-col items-center max-w-[720px] border-[0.2em] border-[#121212] shadow-[0.8em_0.8em_0_0_#121212]">
 
           {/* terminal header */}
           <div className="w-full py-[3%] flex justify-around bg-[#121212] items-center">
@@ -186,7 +201,7 @@ const page = () => {
               <div className="w-[20%] aspect-[1/1] bg-[#ffffdb]"></div>
               <div className="w-[20%] aspect-[1/1] bg-[#ffffdb]"></div>
             </div>
-            <h2 className="font-bold text-[#ffffdb] text-[1.5rem]">sadat@portfolio: ~</h2>
+            <h2 className="font-bold text-[#ffffdb] text-[clamp(0.8rem,4vw,1.5rem)] selection:bg-[#ffffdb] selection:text-[#121212]">sadat@portfolio: ~</h2>
 
             <div className="text-[#121212] text-[1.5rem] bg-[#ffffdb] w-[10%] aspect-[1/1] flex justify-center items-center">
               <button type="button" onClick={closeTerminal} className="w-full">
@@ -196,12 +211,12 @@ const page = () => {
           </div>
 
           {/* terminal body */}
-          <div className="terminalBody whitespace-pre-line p-[3%] w-full max-h-[20vw] overflow-y-scroll bg-[#ffffdb]">
+          <div className="terminalBody whitespace-pre-line p-[3%] w-full max-h-[20vw] overflow-y-scroll bg-[#ffffdb] selection:bg-[#121212] selection:text-[#ffffdb]">
             {output}
           </div>
 
           <div className="w-full">
-            <form onSubmit={useCommand} className="w-full flex items-center px-[4%] border-[0.2em] border-[#121212]">
+            <form onSubmit={useCommand} className="w-full flex items-center px-[4%] border-[0.2em] border-[#121212] selection:bg-[#ffffdb]">
 
               <span className="font-black text-[1.2rem]">$</span>
 
@@ -223,7 +238,7 @@ const page = () => {
         </div>
       )}
 
-      <p className="text-[#121212] text-xl ml-[5%] selection:bg-[#121212] selection:text-[#ffffdb]">v0.6.0</p>
+      <p className="text-[#121212] text-xl ml-[5%] selection:bg-[#121212] selection:text-[#ffffdb]">v{json.version}</p>
     </div>
   );
 };
