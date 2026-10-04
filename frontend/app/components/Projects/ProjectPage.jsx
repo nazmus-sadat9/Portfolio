@@ -1,22 +1,34 @@
 "use client";
 import React, { useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import projects from "./ProjectData";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
 
 const ProjectPage = () => {
 
   const containerRef = useRef(null);
 
+  useGSAP(
+    () => {
+      gsap.from(".project-box", {
+        yPercent: 30,
+        opacity: 0,
+        duration: 1,
+        ease: "back.out(2)",
+        stagger: 0.2,
+      });
+    },
+    { scope: containerRef }
+  );
+
   return (
     <div ref={containerRef} className="min-h-screen grid grid-cols-1 md:grid-cols-3 md:grid-rows-4 gap-8">
       {projects.map((project)=>(
-        <div key={project.id} className="bg-[#ffffff] border-[0.2em] border-[#000] shadow-[0.8em_0.8em_0_0_#121212]">
+        <div key={project.id} className="project-box bg-[#ffffff] border-[0.2em] border-[#000] shadow-[0.8em_0.8em_0_0_#121212]">
 
           <h2 className="selection:bg-[#ffffdb] selection:text-[#121212] text-[1.5rem] font-black text-[#ffffdb] bg-[#121212] w-full text-center py-[7%] mb-[4%]">{project.title}</h2>
 
