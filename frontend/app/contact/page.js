@@ -8,6 +8,8 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(useGSAP);
 
 export default function ContactPage() {
+
+  // states
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -96,7 +98,7 @@ export default function ContactPage() {
             <a
               data-anim="bottom"
               className="inline-block text-[clamp(1.2rem,4vw,2rem)] text-[#121212]"
-              href=""
+              href="https://www.facebook.com/share/19bzUHU9e8/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook">
@@ -106,7 +108,7 @@ export default function ContactPage() {
             <a
               data-anim="top"
               className="inline-block text-[clamp(1.2rem,4vw,2rem)] text-[#121212]"
-              href=""
+              href="https://instagram.com/lord.sadat?stkn=MTBnaW50bjRiaWl6dQ%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram">
