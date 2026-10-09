@@ -1,41 +1,29 @@
 "use client";
 import { useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleCheck, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
-const Toast = ({
-  title, 
-  description, 
-  isOpen = false,
-  onClose,
-  duration = 4000,
-  }) => {
+function Toast({ status, onClose }) {
 
   useEffect(() => {
-    if (isOpen && duration > 0 && onClose) {
 
-      const timer = setTimeout(() => {
-        onClose()
-      }, duration);
+    if (!status) return;
+    const t = setTimeout(onClose, 3000);
+    return () => clearTimeout(t);
+  }, [status, onClose]);
 
-      return () => clearTimeout(timer);
-    }
-  }, [isOpen, duration, onClose])
+  if (!status) return null;
 
-  if (!isOpen) {
-    return null;
-  }
-  
+  const ok = status === "success";
+
   return (
-    
-    <div className="fixed top-[15%] bg-[#ffffff] right-[5%] p-[3%] border-[0.2em] border-[#121212] shadow-[0.8em_0.8em_0_0_#121212]">
-      <div className="flex justify-evenly items-start flex-col">
-        { title && <h3>{title}</h3>}
-        { description && <p>{description}</p>}
-      </div>
-
-      {onClose && (
-        <button onClick={onClose} className="text-[1.5rem]" >×</button>
-      )}
-  
+    <div
+      role="status"
+      className={`fixed top-15 md:top-30 left-1/2 z-50 flex -translate-x-1/2 items-center gap-2 border-2 border-black px-5 py-2 text-sm font-bold uppercase text-black shadow-[4px_4px_0_#111] ${ok ? "bg-green-300" : "bg-red-300"
+        }`}
+    >
+      <FontAwesomeIcon icon={ok ? faCircleCheck : faCircleXmark} />
+      {ok ? "Sent" : "Failed"}
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import Toast from "../components/Toast";
 
 gsap.registerPlugin(useGSAP);
 
@@ -74,8 +75,20 @@ export default function ContactPage() {
     }
   };
 
+  // toast status
+  const toastStatus = success ? "success" : error ? "error" : null;
+
   return (
     <div ref={root} className="w-screen h-screen bg-[#ffffdb] flex justify-evenly items-center">
+
+      {/* Toast component */}
+      <Toast
+        status={toastStatus}
+        onClose={() => {
+          setSuccess("");
+          setError("");
+        }}
+      />
 
       <div className="w-[70%] md:w-[60%] flex flex-col md:flex-row bg-[#121212] border-[0.2em] border-[#121212] shadow-[0.8em_0.8em_0_0_#121212]">
 
